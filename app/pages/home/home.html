@@ -1,0 +1,110 @@
+<div class="span12">
+    <div class="row">
+        <div class="span9">
+            <div class="row">
+                <div class="span9">
+                    <h3 class="f-family-1 c-red">{{"home.news" | i18n }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span9">
+                    <carousel interval="carouselInterval">
+                        <slide ng-repeat="slide in slides" active="slide.active">
+                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <img src="images/jcertif-conference.png"/>
+                    <img src="images/trait-jcertif-conference.png"/>
+                </div>
+                <div class="span3">
+                    <img src="images/jcertif-universite.png"/>
+                    <img src="images/trait-jcertif-conference.png"/>
+                </div>
+                <div class="span3">
+                    <img src="images/telechargement-btn.png"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span9">
+                    <h3 class="f-family-1 c-red">&nbsp;</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span9">
+                    <h3 class="f-family-1 c-red">{{"home.sponsors" | i18n }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span9">
+                    <ul class="thumbnails">
+                        <li class="span3" ng-repeat="sponsor in sponsors">
+                            <a href="{{sponsor.website}}" class="thumbnail">
+                                <img ng-src="{{sponsor.logo}}" style="margin:auto;">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="row">
+                <div class="span3">
+                    <img src="images/pointer-titles.png" class="pull-left l-title-img-margin"/>
+
+                    <h3 class="f-family-1 c-red">{{"home.actus" | i18n }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <img src="images/pointer-titles.png" class="pull-left l-title-img-margin"/>
+
+                    <h3 class="f-family-1 c-red">{{"home.newsletter" | i18n }}</h3>
+                    <span>{{"home.newsletter.register"| i18n }}</span>
+                    <input type="text" placeholder="{{'home.newsletter.input' | i18n }}">
+                    <button type="submit" class="btn">{{'home.newsletter.btn' | i18n }}</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    <div class="row">
+                        <div class="span3">
+                            <img src="images/pointer-titles.png" class="pull-left l-title-img-margin"/>
+
+                            <h3 class="f-family-1 c-red">{{"home.followus" | i18n }}</h3>
+                        </div>
+                        <div class="span3">
+                            <img src="images/twitter-btn.png" class="pull-left l-social-img-margin"/>
+                            <img src="images/g+-btn.png" class="pull-left l-social-img-margin"/>
+                            <img src="images/fcbk-btn.png" class="pull-left l-social-img-margin"/>
+                            <img src="images/youtube-btn.png" class="pull-left l-social-img-margin"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="span3">&nbsp;
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="span3 c-gray">
+                            <div class="row" ng-repeat="tweet in tweets.results">
+                                <div class="span3">
+                                    <h7>{{tweet.text}}</h7>
+                                    <br/><br/>
+                                </div>
+
+                            </div>
+                            <img src="images/rejoindre-btn.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
