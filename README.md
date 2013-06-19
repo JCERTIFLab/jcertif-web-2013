@@ -22,7 +22,7 @@ Installer :
 * [NodeJS](http://nodejs.org/)
 * Grunt
 ```
-npm install grunt -g
+npm install grunt-cli -g
 ```
 * Bower
 ```
