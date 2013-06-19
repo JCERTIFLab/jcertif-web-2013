@@ -9,7 +9,7 @@ Ce projet consiste à construire le prochain site www.jcertif.com.
 * [Angular Bootstrap](http://angular-ui.github.io/bootstrap/)
 
 
-##Les outils
+## Les outils
 
 * [grunt](http://gruntjs.com/)
 * [bower](https://github.com/bower/bower)
