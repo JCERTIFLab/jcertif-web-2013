@@ -40,7 +40,13 @@ git clone https://github.com/JCERTIFLab/jcertif-web-2013.git
 ```
 
 ### Lancer l'application
-Depuis la racine des sources, lancer la commande :
+Depuis la racine des sources, lancer les commandes :
+```
+npm install
+```
+```
+bower install
+```
 ```
 grunt server
 ```
