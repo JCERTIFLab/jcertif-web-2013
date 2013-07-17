@@ -6,13 +6,10 @@ app.directive('jcInputText', function () {
         replace: true,
         templateUrl: 'directives/form/inputText/inputText.html',
         scope: {
-            property: '=',
+            property: '@',
             label: '=',
-            model: '='
-
-        },
-        link: function (scope, element, attributes) {
-
+            model: '=',
+            inputType: '@'
         }
     };
 });
