@@ -1,13 +1,11 @@
 'use strict';
 
-app.controller('SpeakersCtrl', ['$http', '$scope', '$dialog', function ($http, $scope, $dialog) {
-    $http.defaults.useXDomain = true;
-    if ($scope.speakers == undefined) {
-        $http.get(backendUrl + '/speaker/list')
-            .success(function (result) {
-                $scope.speakers = result;
-            });
-    }
+app.controller('SpeakersCtrl', ['$http', '$scope', '$dialog', 'backendService', function ($http, $scope, $dialog, backendService) {
+
+    backendService.getSpeakers(function(speakersList) {
+        $scope.speakers = speakersList;
+    });
+
 
     $scope.openDialog = function(speaker){
         var dialogSpeaker = $dialog.dialog({
