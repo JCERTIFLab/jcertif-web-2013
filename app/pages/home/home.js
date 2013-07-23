@@ -14,9 +14,4 @@ app.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
         .success(function (sponsors) {
             $scope.sponsors = sponsors;
         });
-
-    //$http.jsonp('http://search.twitter.com/search.json?q=google&callback=JSON_CALLBACK&rpp=6')
-     //   .success(function (tweets) {
-       //     $scope.tweets = tweets;
-        //});
 }]);
