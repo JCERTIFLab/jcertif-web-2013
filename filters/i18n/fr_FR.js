@@ -3,7 +3,6 @@ var fr_FR = {
     "header.city": "IFC (EX-CCF) - Brazzaville",
     "header.date": "9 - 15 Sept. 2013",
     "header.login": "Se connecter",
-    "header.register": "S'inscrire",
     "header.nav.home": "Accueil",
     "header.nav.register": "S'inscrire",
     "header.nav.speakers": "Présentateurs",

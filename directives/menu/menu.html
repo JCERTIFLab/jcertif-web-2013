@@ -1,11 +1,20 @@
-<div class="row">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <ul class="nav">
-                <li ng-repeat="item in menuItems" ng-click="selectMenu($index)" class="{{item.class}} f-menu">
-                    <a href="{{item.url}}">{{item.label | i18n}}</a>
-                </li>
-            </ul>
+<div class="row-fluid">
+
+    <div class="navbar navbar-fixed-top">
+        <br/>
+        <div class="container">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li ng-repeat="item in menuItems" ng-click="selectMenu($index)" class="{{item.class}} f-menu">
+                        <a href="{{item.url}}">{{item.label | i18n}}</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+        <div class="span3">
+
         </div>
     </div>
 </div>

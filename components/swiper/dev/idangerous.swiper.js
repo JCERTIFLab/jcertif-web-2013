@@ -1105,8 +1105,11 @@ var Swiper = function (selector, params) {
             _this.callPlugins('onTouchStartBegin');
 
             if(!isTouchEvent) {
-                if(event.preventDefault) event.preventDefault();
-                else event.returnValue = false;
+                // Added check for input element since we are getting a mousedown event even on some touch devices.
+                if (!(params.releaseFormElements && event.srcElement.tagName.toLowerCase() === 'input')) {
+                    if (event.preventDefault) event.preventDefault();
+                    else event.returnValue = false;
+                }
             }
 
             var pageX = isTouchEvent ? event.targetTouches[0].pageX : (event.pageX || event.clientX);
@@ -1905,24 +1908,24 @@ var Swiper = function (selector, params) {
     /*========================================== 
         Autoplay 
     ============================================*/
-    var autoPlayInterval = undefined;
-    _this.startAutoplay = function() {
-        if (typeof autoPlayInterval !== 'undefined') return false;
+    _this.autoPlayIntervalId = undefined;
+    _this.startAutoplay = function () {
+        if (typeof _this.autoPlayIntervalId !== 'undefined') return false;
         if (params.autoplay && !params.loop) {
-            autoPlayInterval = setInterval(function(){
+            _this.autoPlayIntervalId = setInterval(function(){
                 if (!_this.swipeNext(true)) _this.swipeTo(0);
             }, params.autoplay)
         }
         if (params.autoplay && params.loop) {
-            autoPlay = setInterval(function(){
+            _this.autoPlayIntervalId = setInterval(function(){
                 _this.swipeNext();
             }, params.autoplay)
         }
         _this.callPlugins('onAutoplayStart');
     }
-    _this.stopAutoplay = function() {
-        if (autoPlayInterval) clearInterval(autoPlayInterval);
-        autoPlayInterval = undefined;
+    _this.stopAutoplay = function () {
+        if (_this.autoPlayIntervalId) clearInterval(_this.autoPlayIntervalId);
+        _this.autoPlayIntervalId = undefined;
         _this.callPlugins('onAutoplayStop');
     }
     /*==================================================

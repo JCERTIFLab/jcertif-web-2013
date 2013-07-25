@@ -11,5 +11,6 @@ app.config(function ($routeProvider) {
     $routeProvider
         .when('/home', {controller: 'HomeCtrl', templateUrl: 'pages/home/home.html'})
         .when('/register', {controller: 'RegisterCtrl', templateUrl: 'pages/register/register.html'})
+        .when('/speakers', {controller: 'SpeakersCtrl', templateUrl: 'pages/speakers/speakers.html'})
         .otherwise({redirectTo: '/home'});
 });
