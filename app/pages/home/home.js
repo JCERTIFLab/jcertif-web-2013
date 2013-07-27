@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
+app.controller('HomeCtrl', ['$http', '$scope', 'backendService', function ($http, $scope, backendService) {
     $scope.carouselInterval = 2000;
 
     $scope.slides = [
@@ -10,13 +10,7 @@ app.controller('HomeCtrl', ['$http', '$scope', function ($http, $scope) {
         {image: 'https://lh6.googleusercontent.com/-Zj1JcJtP4RY/UHP1R5feaRI/AAAAAAAABNg/q7ZURF0VI74/s953/DSC_0146.JPG'}
     ];
 
-    $http.jsonp(backendUrl + '/sponsor/list?jsonp=JSON_CALLBACK')
-        .success(function (sponsors) {
-            $scope.sponsors = sponsors;
-        });
-
-    //$http.jsonp('http://search.twitter.com/search.json?q=google&callback=JSON_CALLBACK&rpp=6')
-     //   .success(function (tweets) {
-       //     $scope.tweets = tweets;
-        //});
+    backendService.getSponsors(function(sponsorsList) {
+       $scope.sponsors = sponsorsList;
+   });
 }]);

@@ -51,7 +51,6 @@
     <script src="pages/home/home.js"></script>
     <script src="pages/register/register.js"></script>
     <script src="pages/speakers/speakers.js"></script>
-     <script src="pages/contact/contact.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
