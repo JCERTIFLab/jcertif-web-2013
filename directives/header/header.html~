@@ -30,12 +30,7 @@
                 <div class="java-icon pull-left l-header-img-margin"></div>
                 <div class="php-icon pull-left l-header-img-margin"></div>
             </div>
-            <div class="span6 offset2">
-                    <div class="pointer-vert-date pull-left l-header-img-margin"></div>
-                    <h4 class="pull-left f-family-2">{{"header.date" | i18n }}</h4>
-                    <div class="pointer-jaune-login pull-left l-header-img-margin"></div>
-                    <a href="#/register" class="c-yellow-hover"><h4 class="f-family-2">{{"header.login" | i18n }}</h4></a>
-            </div>
+           
         </div>
         <div class="row">
             <div class="span6">&nbsp;</div>
