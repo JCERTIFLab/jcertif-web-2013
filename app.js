@@ -12,6 +12,8 @@ app.config(function ($routeProvider) {
         .when('/home', {controller: 'HomeCtrl', templateUrl: 'pages/home/home.html'})
         .when('/register', {controller: 'RegisterCtrl', templateUrl: 'pages/register/register.html'})
         .when('/speakers', {controller: 'SpeakersCtrl', templateUrl: 'pages/speakers/speakers.html'})
+        .when('/sessions', {controller: 'SessionsCtrl', templateUrl: 'pages/sessions/sessions.html'})
+        .when('/agenda', {controller: 'AgendaCtrl', templateUrl: 'pages/agenda/agenda.html'})
         .when('/contact', {controller: 'ContactCtrl', templateUrl: 'pages/contact/contact.html'})
         .otherwise({redirectTo: '/home'});
 });

@@ -2,7 +2,7 @@
     <div class="navbar">
         <div class="navbar-inner">
             <ul class="nav">
-                <li ng-repeat="item in menuItems" ng-click="selectMenu($index)" class="{{item.class}} f-menu">
+                <li ng-repeat="item in menuItems" ng-click="selectMenu($index)" ng-class="getClass(item.url)" class="f-menu">
                     <a href="{{item.url}}">{{item.label | i18n}}</a>
                 </li>
             </ul>

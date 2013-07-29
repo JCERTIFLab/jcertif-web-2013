@@ -1,0 +1,22 @@
+<div ng-controller="AgendaCtrl" class="container">
+
+    <ul class="nav nav-pills">
+        <li ng-repeat="day in days">
+            <a href="#">{{day}}</a>
+        </li>
+    </ul>
+
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li ng-repeat="day in days">
+                <a href="#tab{{index}}" data-toggle="tab">{{day}}</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab{{index}}" ng-repeat="day in days">
+                <p>day</p>
+            </div>
+        </div>
+    </div>
+
+</div>

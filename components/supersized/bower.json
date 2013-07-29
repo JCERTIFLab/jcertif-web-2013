@@ -1,0 +1,9 @@
+{
+  "name": "supersized",
+  "version": "0.0.0",
+  "commit": "2ccedfdb011df7f05a7264b843fde442b9912c5b",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/buildinternet/supersized.git"
+  }
+}
