@@ -12,7 +12,8 @@ app.controller('SpeakersCtrl', ['$http', '$scope', '$dialog', 'backendService', 
             backdrop: true,
             keyboard: true,
             backdropClick: true,
-            dialogFade: false,
+            backdropFade: true,
+            dialogFade:true,
             resolve: {
                 speaker: function(){
                     return angular.copy(speaker);

@@ -1,0 +1,29 @@
+<div ng-controller="SessionsCtrl" class="container">
+    <div ng-repeat="session in sessions" class="well well-large">
+        <h3>{{session.title}}</h3>
+        <div>{{session.description}}</div>
+        <br/>
+        <div class="row" ng-repeat="speaker in session.fullSpeakers" ng-click="open(speaker)">
+            <div class="span1"><img src="{{speaker.photo}}"></div>
+            <div class="span11"><b>{{speaker.firstname}} {{speaker.lastname}}</b></div>
+        </div>
+    </div>
+
+    <!-- TODO Mutualiser la popup du détail d'un speaker -->
+    <div modal="shouldBeOpen" close="close()" options="opts">
+        <div class="modal-header">
+            <h3>{{selectedSpeaker.firstname}} {{selectedSpeaker.lastname}}</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="span2">
+                    <img ng-src="{{selectedSpeaker.photo}}">
+                </div>
+                <div class="span4">
+                    {{selectedSpeaker.biography}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
