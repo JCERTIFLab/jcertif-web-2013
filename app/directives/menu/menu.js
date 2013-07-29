@@ -1,11 +1,18 @@
 'use strict';
 
-app.directive('jcMenu', function () {
+app.directive('jcMenu',  ['$location', function(location) {
+    function getClass(path) {
+        if (('#' + location.path()) == path) {
+            return "active";
+        } else {
+            return "";
+        }
+    }
     return {
         restrict: 'E',
         replace: true,
         templateUrl: 'directives/menu/menu.html',
-        link: function (scope, element, attributes) {
+        link: function (scope, element, attributes, location) {
             scope.menuItems = [
                 {'label': 'header.nav.home', 'url': '#/home'},
                 {'label': "header.nav.register", 'url': '#/register'},
@@ -15,15 +22,9 @@ app.directive('jcMenu', function () {
                 {'label':"header.nav.agenda", 'url': '#/agenda'},
                 {'label':"header.nav.contact", 'url': '#/contact'}
             ];
-            scope.currentMenuItem = scope.menuItems[0];
 
-            scope.currentMenuItem["class"] = "active";
+            scope.getClass = getClass;
 
-            scope.selectMenu = function(index) {
-                scope.currentMenuItem["class"] = "";
-                scope.currentMenuItem = scope.menuItems[index];
-                scope.currentMenuItem["class"] = "active";
-            }
         }
     };
-});
+}]);
