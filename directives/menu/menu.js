@@ -16,9 +16,9 @@ app.directive('jcMenu',  ['$location', function(location) {
             scope.menuItems = [
                 {'label': 'header.nav.home', 'url': '#/home'},
                 {'label': "header.nav.register", 'url': '#/register'},
+                {'label':"header.nav.cfp", 'url': '#/cfp'},
                 {'label':'header.nav.speakers', 'url': '#/speakers'},
                 {'label':"header.nav.sessions", 'url': '#/sessions'},
-                {'label':"header.nav.videos", 'url': '#/videos'},
                 {'label':"header.nav.agenda", 'url': '#/agenda'},
                 {'label':"header.nav.contact", 'url': '#/contact'}
             ];
