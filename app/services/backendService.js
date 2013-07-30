@@ -3,11 +3,20 @@ app.factory('backendService', ['$http', function ($http) {
     var sponsors = undefined;
     var speakers = undefined;
     var sessions = undefined;
+    var categories = undefined;
 
     function findSponsors(callback) {
         $http.jsonp(backendUrl + '/sponsor/list?jsonp=JSON_CALLBACK')
             .success(function (result) {
                 sponsors = result;
+                callback(result);
+            });
+    }
+
+    function findCategories(callback) {
+        $http.jsonp(backendUrl + '/ref/category/list?jsonp=JSON_CALLBACK')
+            .success(function (result) {
+                categories = result;
                 callback(result);
             });
     }
@@ -56,6 +65,13 @@ app.factory('backendService', ['$http', function ($http) {
                 findSponsors(callback);
             } else {
                 callback(sponsors);
+            }
+        },
+        getCategories : function(callback) {
+            if(categories == undefined) {
+                findCategories(callback);
+            } else {
+                callback(categories);
             }
         },
         getSpeakers : function(callback) {
