@@ -1,22 +1,20 @@
 <div ng-controller="AgendaCtrl" class="container">
 
-    <ul class="nav nav-pills">
-        <li ng-repeat="day in days">
-            <a href="#">{{day}}</a>
-        </li>
-    </ul>
-
-    <div class="tabbable">
-        <ul class="nav nav-tabs">
-            <li ng-repeat="day in days">
-                <a href="#tab{{index}}" data-toggle="tab">{{day}}</a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="tab{{index}}" ng-repeat="day in days">
-                <p>day</p>
+        <div ng-repeat="day in days" class="row container-fluid">
+            <div><h1>{{day.day}}</h1></div>
+            <div ng-repeat="room in day.rooms" class="span3" >
+                <div class="row">
+                    <div><h3>Salle {{room.name}}</h3></div>
+                    <div ng-repeat="session in room.sessions" class="well span2">
+                        <div>{{session.start | hour}} {{session.end | hour}}</div>
+                        <div><h5>{{session.title}}</h5></div>
+                        <div ng-repeat="speaker in session.fullSpeakers">
+                            <div>{{speaker.firstname}} {{speaker.lastname}}</div>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
 </div>

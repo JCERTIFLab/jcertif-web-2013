@@ -6,14 +6,60 @@ app.controller('AgendaCtrl', ['$http', '$scope', 'backendService', function ($ht
 
         var days = [];
         var sessLength = sessionsList.length;
-        for(var iSess = 0; iSess < sessLength; iSess++) {
-            var startDate = getDate(sessionsList[iSess].start);
+        for(var i = 0; i < sessLength; i++) {
+            var startDate = getDate(sessionsList[i].start);
             if(!contains(days, startDate)) {
                 days[days.length] = startDate;
             }
+        }
+
+        var coolDays = [];
+
+        function addSession(rooms, session) {
+
+            if(isRoomsHasSessionRoom(rooms, session)) {
+                for(var i=0; i < rooms.length; i++) {
+                    if (rooms[i].name == session.room) {
+                        rooms[i].sessions[rooms[i].sessions.length] = session;
+                    }
+                }
+            } else {
+                rooms[rooms.length] = {
+                    name : session.room,
+                    sessions : [session]
+                }
+            }
+
 
         }
-        $scope.days = ['09/09', '10/09', '11/09', '12/09', '13/09', '14/09', '15/09'];
+
+        function isRoomsHasSessionRoom(rooms, session) {
+            for(var i=0; i < rooms.length; i++) {
+                if (rooms[i].name == session.room) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        for(var j = 0; j < days.length; j++) {
+            var roomsDay=[];
+            for(var i = 0; i < sessLength; i++) {
+                var startDate = getDate(sessionsList[i].start);
+                if(days[j] == startDate) {
+                    addSession(roomsDay,sessionsList[i]);
+                }
+            }
+            coolDays[coolDays.length] = {
+                day : days[j],
+                rooms : roomsDay
+            };
+        }
+
+
+
+        $scope.days = coolDays;
         $scope.sessions = sessionsList;
     });
 
@@ -27,7 +73,23 @@ app.controller('AgendaCtrl', ['$http', '$scope', 'backendService', function ($ht
     }
 
     function getDate(dateHour) {
-        return dateHour.substr(0, 10);
+        return dateHour.substr(0, 5);
+    }
+
+    var activeRoom = "01";
+
+    $scope.activeRoom = function(room) {
+        activeRoom = room;
+        $scope.room = activeRoom;
+    }
+
+    $scope.getClass = function(room) {
+        if(activeRoom == room) {
+            return "active";
+        }else {
+            return "";
+        }
+
     }
 
 }]);
