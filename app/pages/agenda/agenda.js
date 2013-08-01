@@ -92,4 +92,18 @@ app.controller('AgendaCtrl', ['$http', '$scope', 'backendService', function ($ht
 
     }
 
+    $scope.openSession = function(session){
+        $scope.selectedSession = session;
+        $scope.shouldBeOpen = true;
+    }
+
+    $scope.close = function(){
+        $scope.shouldBeOpen = false;
+    }
+
+    $scope.opts = {
+        backdropFade: true,
+        dialogFade:true
+    };
+
 }]);
