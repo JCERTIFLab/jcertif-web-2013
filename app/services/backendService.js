@@ -1,44 +1,46 @@
 app.factory('backendService', ['$http', function ($http) {
 
-    var sponsors = undefined;
+    var backendData = {};
     var speakers = undefined;
     var sessions = undefined;
-    var categories = undefined;
 
-    function findSponsors(callback) {
-        $http.jsonp(backendUrl + '/sponsor/list?jsonp=JSON_CALLBACK')
-            .success(function (result) {
-                sponsors = result;
-                callback(result);
-            });
-    }
 
-    function findCategories(callback) {
-        $http.jsonp(backendUrl + '/ref/category/list?jsonp=JSON_CALLBACK')
-            .success(function (result) {
-                categories = result;
-                callback(result);
-            });
+
+    function findAll(entity, callback) {
+        if(backendData[entity] == undefined) {
+            $http.jsonp(backendUrl + '/' + entity + '/list?jsonp=JSON_CALLBACK')
+                .success(function (result) {
+                    backendData[entity] = result;
+                    callback(result);
+                });
+        } else {
+            callback(backendData[entity]);
+        }
+
     }
 
     function initSessionsAndSpeakers(callback) {
-        $http.jsonp(backendUrl + '/speaker/list?jsonp=JSON_CALLBACK')
-            .success(function (result) {
-                speakers = result;
-                $http.jsonp(backendUrl + '/session/list?jsonp=JSON_CALLBACK')
-                    .success(function (result) {
-                        sessions = result;
-                        mergeSessionsAndSpeakers(speakers, sessions);
-                        callback();
-                    });
-            });
+        findAll('room', function(allRooms) {
+            $http.jsonp(backendUrl + '/speaker/list?jsonp=JSON_CALLBACK')
+                .success(function (result) {
+                    speakers = result;
+                    $http.jsonp(backendUrl + '/session/list?jsonp=JSON_CALLBACK')
+                        .success(function (result) {
+                            sessions = result;
+                            mergeSessionsAndSpeakers(speakers, sessions, allRooms);
+                            callback();
+                        });
+                });
+        });
+
     }
 
-    function mergeSessionsAndSpeakers(speakers, sessions) {
+    function mergeSessionsAndSpeakers(speakers, sessions, allRooms) {
         var sessionsLength = sessions.length;
         var speakersLength = speakers.length;
         for(var iSes=0;iSes < sessionsLength; iSes++) {
             var spLength = sessions[iSes].speakers.length;
+            sessions[iSes].roomName = getRoomName(sessions[iSes].room, allRooms);
             for(var iSp=0;iSp < spLength; iSp++) {
                 var emailSp = sessions[iSes].speakers[iSp];
                 for(var iSpk=0;iSpk < speakersLength; iSpk++) {
@@ -50,6 +52,16 @@ app.factory('backendService', ['$http', function ($http) {
         }
     }
 
+    function getRoomName(idRoom, allRooms) {
+        for(var i=0;i < allRooms.length; i++) {
+            if(idRoom === allRooms[i].id) {
+                return allRooms[i].name;
+            }
+        }
+    }
+
+
+
     function joinSpeakerAndSession(speaker, session) {
 
         if(session.fullSpeakers == undefined) {
@@ -60,20 +72,9 @@ app.factory('backendService', ['$http', function ($http) {
     }
 
     return {
-        getSponsors : function(callback) {
-            if(sponsors == undefined) {
-                findSponsors(callback);
-            } else {
-                callback(sponsors);
-            }
-        },
-        getCategories : function(callback) {
-            if(categories == undefined) {
-                findCategories(callback);
-            } else {
-                callback(categories);
-            }
-        },
+        getSponsors : function(callback) { findAll('sponsor', callback); },
+        getCategories : function(callback) { findAll('ref/category', callback); },
+        getRooms : function(callback) { findAll('room', callback); },
         getSpeakers : function(callback) {
             if(speakers == undefined) {
                 initSessionsAndSpeakers(function getSp(){
@@ -92,5 +93,6 @@ app.factory('backendService', ['$http', function ($http) {
                 callback(sessions);
             }
         }
+
     };
 }]);

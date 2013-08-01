@@ -26,6 +26,7 @@ app.controller('AgendaCtrl', ['$http', '$scope', 'backendService', function ($ht
             } else {
                 rooms[rooms.length] = {
                     name : session.room,
+                    label : session.roomName,
                     sessions : [session]
                 }
             }
@@ -74,22 +75,6 @@ app.controller('AgendaCtrl', ['$http', '$scope', 'backendService', function ($ht
 
     function getDate(dateHour) {
         return dateHour.substr(0, 5);
-    }
-
-    var activeRoom = "01";
-
-    $scope.activeRoom = function(room) {
-        activeRoom = room;
-        $scope.room = activeRoom;
-    }
-
-    $scope.getClass = function(room) {
-        if(activeRoom == room) {
-            return "active";
-        }else {
-            return "";
-        }
-
     }
 
     $scope.openSession = function(session){
