@@ -2,38 +2,32 @@
 
     <div ng-repeat="day in days" class="">
         <div class="day">
-            <div><h1 class="c-red">{{day.day}} - Day {{$index + 1}}</h1></div>
-            <div ng-repeat="room in day.rooms" class=" " >
-                <br/>
-                <div class="container salle">
-                    <div class="span3">
-                        <h3>Salle {{room.name}}</h3>
-                    </div>
-                    <div class="span9 thumbnails">
-                        <div class="row">
-                            <div ng-repeat="session in room.sessions" class="session span4 thumbnail" ng-click="openSession(session)">
-                                <div ng-repeat="speaker in session.fullSpeakers">
-                                    <div class="pull-left">
-                                        <img src="{{speaker.photo}}" width="50">
-                                    </div>
-                                </div>
-                                <div>&nbsp;{{session.start | hour}} {{session.end | hour}}</div>
-
-                                <div><b>&nbsp;{{session.title}}</b></div>
-
-                            </div>
-
+            <div><h2 class="c-red">{{day.day}} - Day {{$index + 1}}</h2></div>
+            <div class="room">
+                <div ng-repeat="room in day.rooms">
+                    <div class="container">
+                        <div class="span3">
+                            <h3>{{room.label}}</h3>
                         </div>
-
-
+                        <div class="span9 thumbnails">
+                            <div class="row">
+                                <div ng-repeat="session in room.sessions" class="session span4 thumbnail" ng-click="openSession(session)">
+                                    <div ng-repeat="speaker in session.fullSpeakers">
+                                        <div class="pull-left">
+                                            <img src="{{speaker.photo}}" width="50">
+                                        </div>
+                                    </div>
+                                    <div>&nbsp;{{session.start | hour}} {{session.end | hour}}</div>
+                                    <div><b>&nbsp;{{session.title}}</b></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="room-separator" ng-hide="$last"></div>
                 </div>
-
-
             </div>
             <br/>
         </div>
-
     </div>
 
     <div modal="shouldBeOpen" close="close()" options="opts">
