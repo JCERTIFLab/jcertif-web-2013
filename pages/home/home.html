@@ -1,4 +1,4 @@
-<div class="span12">
+<div class="container">
     <div class="row">
         <div class="span9">
             <div class="row">
@@ -53,23 +53,6 @@
         <div class="span3">
             <div class="row">
                 <div class="span3">
-                    <img src="images/pointer-titles.png" class="pull-left l-title-img-margin"/>
-
-                    <h3 class="f-family-1 c-red">{{"home.actus" | i18n }}</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span3">
-                    <img src="images/pointer-titles.png" class="pull-left l-title-img-margin"/>
-
-                    <h3 class="f-family-1 c-red">{{"home.newsletter" | i18n }}</h3>
-                    <span>{{"home.newsletter.register"| i18n }}</span>
-                    <input type="text" placeholder="{{'home.newsletter.input' | i18n }}">
-                    <button type="submit" class="btn">{{'home.newsletter.btn' | i18n }}</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span3">
                     <div class="row">
                         <div class="span3">
                             <img src="images/pointer-titles.png" class="pull-left l-title-img-margin"/>
@@ -77,10 +60,10 @@
                             <h3 class="f-family-1 c-red">{{"home.followus" | i18n }}</h3>
                         </div>
                         <div class="span3">
-                            <img src="images/twitter-btn.png" class="pull-left l-social-img-margin"/>
-                            <img src="images/g+-btn.png" class="pull-left l-social-img-margin"/>
-                            <img src="images/fcbk-btn.png" class="pull-left l-social-img-margin"/>
-                            <img src="images/youtube-btn.png" class="pull-left l-social-img-margin"/>
+                            <a  href="https://twitter.com/jcertif" target="_blank"><img src="images/twitter-btn.png" class="pull-left l-social-img-margin"/></a>
+                            <a  href="https://plus.google.com/101565004503136979275" target="_blank"><img src="images/g+-btn.png" class="pull-left l-social-img-margin"/></a>
+                            <a  href="https://www.facebook.com/JCertif" target="_blank"><img src="images/fcbk-btn.png" class="pull-left l-social-img-margin"/></a>
+                            <a  href="http://www.youtube.com/results?search_query=jcertif" target="_blank"><img src="images/youtube-btn.png" class="pull-left l-social-img-margin"/></a>
                         </div>
                     </div>
 
@@ -91,20 +74,12 @@
 
                     <div class="row">
                         <div class="span3 c-gray">
-                            <div class="row" ng-repeat="tweet in tweets.results">
-                                <div class="span3">
-                                    <h7>{{tweet.text}}</h7>
-                                    <br/><br/>
-                                </div>
-
-                            </div>
-                            <img src="images/rejoindre-btn.png"/>
+                            <a data-chrome="nofooter noheader noscrollbar" class="twitter-timeline"  height="850" href="https://twitter.com/search?q=%23jcertif" data-widget-id="363028005204946944">Tweets about "#jcertif"</a>
+                            <a  href="https://twitter.com/search?q=%23jcertif" target="_blank"><img src="images/rejoindre-btn.png"/></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
