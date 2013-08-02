@@ -23,14 +23,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <br/>
-    <div class=" c-box-shadow">
-        <jc-header  class="c-gray"></jc-header>
-        <jc-menu class="c-gray"></jc-menu>
-        <div class="row c-gray" ng-view></div>
-        <jc-footer></jc-footer>
-    </div>
-    <br/>
+
+    <jc-header></jc-header>
+    <jc-menu ></jc-menu>
+    <div class="row" ng-view></div>
+    <jc-footer></jc-footer>
 
 
 
@@ -46,21 +43,14 @@
     <script src="filters/i18n/fr_FR.js"></script>
     <script src="app.js"></script>
     <script src="directives/form/inputText/inputText.js"></script>
-    <script src="directives/form/textArea/textArea.js"></script>
     <script src="directives/header/header.js"></script>
     <script src="directives/footer/footer.js"></script>
     <script src="directives/menu/menu.js"></script>
-    <script src="directives/twitter/twitter.js"></script>
     <script src="filters/i18n/i18n.js"></script>
-    <script src="filters/hour/hour.js"></script>
     <script src="services/backendService.js"></script>
     <script src="pages/home/home.js"></script>
     <script src="pages/register/register.js"></script>
     <script src="pages/speakers/speakers.js"></script>
-    <script src="pages/contact/contact.js"></script>
-    <script src="pages/sessions/sessions.js"></script>
-    <script src="pages/cfp/cfp.js"></script>
-    <script src="pages/agenda/agenda.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -69,7 +59,6 @@
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
-
     </script>
   </body>
 </html>
