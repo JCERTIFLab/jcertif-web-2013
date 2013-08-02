@@ -52,4 +52,3 @@ grunt server
 ```
 
 C'est tout normalement...:)
-
