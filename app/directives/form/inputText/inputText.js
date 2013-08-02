@@ -9,7 +9,8 @@ app.directive('jcInputText', function () {
             property: '@',
             label: '=',
             model: '=',
-            inputType: '@'
+            inputType: '@',
+            msg: '@'
         }
     };
 });

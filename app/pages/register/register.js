@@ -18,6 +18,9 @@ app.controller('RegisterCtrl', ['$http', '$scope', function ($http, $scope) {
             if( $scope.user[requiredFields[i]] == undefined || $scope.user[requiredFields[i]].trim() == '') {
                 return false;
             }
+            if($scope.user['password'].length < 6) {
+                return false;
+            }
         }
         return  true;
     }

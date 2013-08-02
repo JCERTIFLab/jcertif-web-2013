@@ -33,5 +33,6 @@ var fr_FR = {
     'form.summary' : 'Résumé',
     'form.description' : 'Description',
     'form.keyword' : 'Mots Clés',
-    'form.category' : 'Catégorie'
+    'form.category' : 'Catégorie',
+    'form.password.min' : '6 caractères minimum'
 }
