@@ -4,11 +4,15 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', fun
     $http.defaults.useXDomain = true;
     var requiredFields = ['email', 'password', 'firstname', 'lastname', 'city', 'country'];
     $scope.submitForm = function () {
+        $scope.isInProgress = true;
         $http.post(backendUrl + '/participant/register?jsonp=JSON_CALLBACK',  $scope.user)
             .success(function (result) {
+                $scope.isInProgress = false;
                 openConfirmDialog();
+                $scope.user = {};
             })
             .error(function (result) {
+                $scope.isInProgress = false;
                 openErrorDialog();
             });
     }
@@ -41,4 +45,5 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', fun
         }
         return  true;
     }
+
 }]);

@@ -1,7 +1,10 @@
 <div class="span12">
-    <form name="registerForm" class="form-horizontal" ng-controller="RegisterCtrl">
+    <form name="registerForm" class="form-horizontal" ng-controller="RegisterCtrl" >
         <fieldset>
             <legend>Veuillez remplir ce formulaire pour vous inscrire à l'événement JCertif 2013</legend>
+            <div ng-show="isInProgress">
+                <h3 class="c-red">{{ 'form.register.wait' | i18n }}</h3>
+            </div>
             <jc-input-text input-type="email" label="'form.email'" property="email" model="user.email"></jc-input-text>
             <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password" msg="{{'form.password.min' | i18n}}" ></jc-input-text>
             <jc-input-text input-type="text" label="'form.firstname'" property="firstname" model="user.firstname"></jc-input-text>
@@ -12,7 +15,10 @@
                 <button class="btn" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submit' | i18n}}</button>
             </div>
 
+
         </fieldset>
     </form>
+
+
 
 </div>

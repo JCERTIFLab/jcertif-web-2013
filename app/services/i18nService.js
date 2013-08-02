@@ -40,7 +40,8 @@ app.factory('i18nService', function () {
         'form.register.ok' : 'Inscription validée',
         'form.register.ko' : 'Ooops !',
         'form.register.ok.msg' : 'Votre inscription a bien été prise en compte. Vous allez recevoir un email qui vous indiquera les prochaines étapes à suivre.',
-        'form.register.ko.msg' : "Une erreur technique est survenue, veuillez nous envoyer un email à l'adresse info@jcertif.com."
+        'form.register.ko.msg' : "Une erreur technique est survenue, veuillez nous envoyer un email à l'adresse info@jcertif.com.",
+        'form.register.wait' : 'Inscription en cours...Veuillez patienter svp...'
     }
 
     var EN = {
