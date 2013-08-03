@@ -55,7 +55,7 @@ app.factory('i18nService', function () {
         "header.nav.cfp": "Submit a paper",
         "header.nav.agenda": "Agenda",
         "header.nav.contact": "Contact",
-        "home.news": "One event, many opportunities",
+        "home.news": "ONE EVENT, MANY OPPORTUNITIES",
         "home.sponsors": "OUR SPONSORS",
         "home.newsletter": "NEWSLETTER",
         "home.followus": "FOLLOW US",
