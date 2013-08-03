@@ -2,7 +2,7 @@
 
     <div ng-repeat="day in days" class="">
         <div class="day">
-            <div><h2 class="c-red">{{day.day}} - Day {{$index + 1}}</h2></div>
+            <div><h2 class="c-red">{{day.day}} - {{ 'agenda.day' | i18n }} {{$index + 1}}</h2></div>
             <div class="room">
                 <div ng-repeat="room in day.rooms">
                     <div class="container">

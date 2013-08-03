@@ -17,13 +17,8 @@ app.factory('i18nService', function () {
         "home.newsletter": "NEWSLETTER",
         "home.followus": "SUIVEZ-NOUS",
         "home.actus": "ACTUALITES",
-        "home.newsletter.register": "Inscrivez-vous",
-        "home.newsletter.input": "Adresse email",
-        "home.newsletter.btn": "S'inscrire",
         "form.email": "Email",
-        "form.confirmEmail": "Confirmez Email",
         "form.password": "Mot de passe",
-        "form.confirmPassword": "Confirmez Mot de passe",
         "form.firstname": "Prénom",
         "form.lastname": "Nom",
         "form.city": "Ville",
@@ -41,14 +36,52 @@ app.factory('i18nService', function () {
         'form.register.ko' : 'Ooops !',
         'form.register.ok.msg' : 'Votre inscription a bien été prise en compte. Vous allez recevoir un email qui vous indiquera les prochaines étapes à suivre.',
         'form.register.ko.msg' : "Une erreur technique est survenue, veuillez nous envoyer un email à l'adresse info@jcertif.com.",
-        'form.register.wait' : 'Inscription en cours...Veuillez patienter svp...'
+        'form.register.wait' : 'Inscription en cours...Veuillez patienter svp...',
+        'cfp.speaker' : 'Qui êtes vous ?',
+        'cfp.paper' : 'Votre sujet',
+        'agenda.day' : 'Jour'
     }
 
     var EN = {
         'header.conference': 'CONFERENCE',
         'header.city': 'IFC (EX-CCF) - Brazzaville',
         'header.date': '9 - 15 Sept. 2013',
-        'header.login': 'Login'
+        'header.login': 'Login',
+        "header.nav.home": "Home",
+        "header.nav.register": "Sign Up",
+        "header.nav.speakers": "Speakers",
+        "header.nav.sessions": "Sessions",
+        "header.nav.cfp": "Submit a paper",
+        "header.nav.agenda": "Agenda",
+        "header.nav.contact": "Contact",
+        "home.news": "One event, many opportunities",
+        "home.sponsors": "OUR SPONSORS",
+        "home.newsletter": "NEWSLETTER",
+        "home.followus": "FOLLOW US",
+        "home.actus": "NEWS",
+        "form.email": "Email",
+        "form.password": "Password",
+        "form.firstname": "First Name",
+        "form.lastname": "Last Name",
+        "form.city": "City",
+        "form.country": "Country",
+        "form.biography": "Bio",
+        "form.submit": "Sign Up",
+        "form.submitCfp": "Submit !",
+        'form.title' : 'Title',
+        'form.summary' : 'Summary',
+        'form.description' : 'Description',
+        'form.keyword' : 'Keywords',
+        'form.category' : 'Category',
+        'form.password.min' : '6 characters min',
+        'form.register.ok' : 'Your profile was created',
+        'form.register.ko' : 'Ooops !',
+        'form.register.ok.msg' : 'Your subscription has been registered. You will receive an email indicating the following steps',
+        'form.register.ko.msg' : "Something wrongs... Please contact info@jcertif.com",
+        'form.register.wait' : 'Sign up in progress... please wait',
+        'cfp.speaker' : 'Who are you ?',
+        'cfp.paper' : 'Your proposal',
+        'agenda.day' : 'Day'
     }
 
     var currentLang = FR;
@@ -58,12 +91,18 @@ app.factory('i18nService', function () {
             return currentLang[code];
         },
         setLang : function(lang) {
-            if(currentLang == FR) {
-                currentLang = EN;
-            } else {
+            if(lang == 'FR') {
                 currentLang = FR;
+            } else {
+                currentLang = EN;
             }
-
+        },
+        getCurrentLang : function() {
+            if(currentLang == FR) {
+                return 'FR';
+            } else {
+                return 'EN';
+            }
         }
     };
 });

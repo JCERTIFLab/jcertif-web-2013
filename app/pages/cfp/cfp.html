@@ -3,10 +3,9 @@
         <fieldset>
             <div class="row">
                 <div class="span6">
-                    <legend>Qui êtes vous ?</legend>
+                    <legend>{{ 'cfp.speaker' | i18n }}</legend>
                     <jc-input-text input-type="email" label="'form.email'" property="email" model="user.email"></jc-input-text>
                     <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password"></jc-input-text>
-                    <jc-input-text input-type="password" label="'form.confirmPassword'" name="confirmPassword" model="user.confirmPassword"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.firstname'" property="firstname" model="user.firstname"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.lastname'" property="lastname" model="user.lastname"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.city'" property="city" model="user.city"></jc-input-text>
@@ -14,7 +13,7 @@
                     <jc-text-area label="'form.biography'" property="bio" model="user.bio"></jc-text-area>
                 </div>
                 <div class="span6">
-                    <legend>Votre sujet</legend>
+                    <legend>{{ 'cfp.paper' | i18n }}</legend>
                     <div class="control-group">
                         <label class="control-label" for="category">{{'form.category' | i18n}}</label>
 
