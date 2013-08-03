@@ -1,7 +1,7 @@
 <div class="span12">
     <form name="registerForm" class="form-horizontal" ng-controller="RegisterCtrl" >
         <fieldset>
-            <legend>Veuillez remplir ce formulaire pour vous inscrire à l'événement JCertif 2013</legend>
+            <legend>{{ 'form.register.info' | i18n }}</legend>
             <div ng-show="isInProgress">
                 <h3 class="c-red">{{ 'form.register.wait' | i18n }}</h3>
             </div>
