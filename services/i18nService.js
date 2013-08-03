@@ -39,7 +39,8 @@ app.factory('i18nService', function () {
         'form.register.wait' : 'Inscription en cours...Veuillez patienter svp...',
         'cfp.speaker' : 'Qui êtes vous ?',
         'cfp.paper' : 'Votre sujet',
-        'agenda.day' : 'Jour'
+        'agenda.day' : 'Jour',
+        'form.register.info' : "Veuillez remplir ce formulaire pour vous inscrire à l'événement JCertif 2013"
     }
 
     var EN = {
@@ -81,7 +82,8 @@ app.factory('i18nService', function () {
         'form.register.wait' : 'Sign up in progress... please wait',
         'cfp.speaker' : 'Who are you ?',
         'cfp.paper' : 'Your proposal',
-        'agenda.day' : 'Day'
+        'agenda.day' : 'Day',
+        'form.register.info' : "Please, fill form to sign up"
     }
 
     var currentLang = FR;
