@@ -2,7 +2,7 @@
     <form name="cfpForm" class="form-horizontal" ng-controller="CfpCtrl">
         <fieldset>
             <div class="row">
-                <div class="span6">
+                <div class="span6" ng-show="checkSpeaker()">
                     <legend>{{ 'cfp.speaker' | i18n }}</legend>
                     <jc-input-text input-type="email" label="'form.email'" property="email" model="user.email"></jc-input-text>
                     <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password"></jc-input-text>
@@ -10,7 +10,7 @@
                     <jc-input-text input-type="text" label="'form.lastname'" property="lastname" model="user.lastname"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.city'" property="city" model="user.city"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.country'" property="country" model="user.country"></jc-input-text>
-                    <jc-text-area label="'form.biography'" property="bio" model="user.bio"></jc-text-area>
+                    <jc-text-area label="'form.biography'" property="bio" model="user.biography"></jc-text-area>
                 </div>
                 <div class="span6">
                     <legend>{{ 'cfp.paper' | i18n }}</legend>
@@ -20,7 +20,7 @@
                         <div class="controls">
                             <select id="category" name="category" ng-model="cfp.category">
                                 <option value=""></option>
-                                <option ng-repeat="cat in categories" value="cat.label">{{cat.label}}</option>
+                                <option ng-repeat="cat in categories" value="{{cat.label}}">{{cat.label}}</option>
                             </select>
                         </div>
                     </div>
