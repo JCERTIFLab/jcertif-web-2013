@@ -37,10 +37,15 @@ app.factory('i18nService', function () {
         'form.register.ok.msg' : 'Votre inscription a bien été prise en compte. Vous allez recevoir un email qui vous indiquera les prochaines étapes à suivre.',
         'form.register.ko.msg' : "Une erreur technique est survenue, veuillez nous envoyer un email à l'adresse info@jcertif.com.",
         'form.register.wait' : 'Inscription en cours...Veuillez patienter svp...',
+        'form.send' : 'Envoyer',
+        'form.reinitemail.ko' : 'Veuillez saisir un email valide',
+        'form.reinitemail.ok' : 'Votre nouveau mot de passe a été envoyé',
         'cfp.speaker' : 'Qui êtes vous ?',
         'cfp.paper' : 'Votre sujet',
         'agenda.day' : 'Jour',
-        'form.register.info' : "Veuillez remplir ce formulaire pour vous inscrire à l'événement JCertif 2013"
+        'session.keyword' : 'Mots Clés',
+        'form.register.info' : "Veuillez remplir ce formulaire pour vous inscrire à l'événement JCertif 2013",
+        'form.password.minlength' : 'Attention le mot de passe doit être de 6 caractères minimum'
     }
 
     var EN = {
@@ -80,10 +85,15 @@ app.factory('i18nService', function () {
         'form.register.ok.msg' : 'Your subscription has been registered. You will receive an email indicating the following steps',
         'form.register.ko.msg' : "Something wrongs... Please contact info@jcertif.com",
         'form.register.wait' : 'Sign up in progress... please wait',
+        'form.send' : 'Send',
+        'form.reinitemail.ko' : 'Email is invalid',
+        'form.reinitemail.ok' : 'Your new password was sent.',
         'cfp.speaker' : 'Who are you ?',
         'cfp.paper' : 'Your proposal',
         'agenda.day' : 'Day',
-        'form.register.info' : "Please, fill form to sign up"
+        'session.keyword' : 'Keyword',
+        'form.register.info' : "Please, fill form to sign up",
+        'form.password.minlength' : 'Password : 6 characters min'
     }
 
     var currentLang = FR;

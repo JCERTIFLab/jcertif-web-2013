@@ -1,20 +1,26 @@
 'use strict';
 
-app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', function ($http, $scope, $dialog, i18nService) {
+app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'backendService', function ($http, $scope, $dialog, i18nService, backendService) {
     $http.defaults.useXDomain = true;
     var requiredFields = ['email', 'password', 'firstname', 'lastname', 'city', 'country'];
+    $scope.passwordError = '';
     $scope.submitForm = function () {
-        $scope.isInProgress = true;
-        $http.post(backendUrl + '/participant/register?jsonp=JSON_CALLBACK',  $scope.user)
-            .success(function (result) {
-                $scope.isInProgress = false;
-                openConfirmDialog();
-                $scope.user = {};
-            })
-            .error(function (result) {
-                $scope.isInProgress = false;
-                openErrorDialog();
-            });
+        if($scope.user['password'].length < 6) {
+            $scope.passwordError =  i18nService.getText('form.password.minlength');
+        } else {
+            $scope.isInProgress = true;
+            $http.post(backendUrl + '/participant/register?jsonp=JSON_CALLBACK',  $scope.user)
+                .success(function (result) {
+                    $scope.isInProgress = false;
+                    openConfirmDialog();
+                    $scope.user = {};
+                })
+                .error(function (result) {
+                    $scope.isInProgress = false;
+                    openErrorDialog();
+                });
+        }
+
     }
 
     function openConfirmDialog() {
@@ -40,10 +46,27 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', fun
                 return false;
             }
         }
-        if($scope.user['password'].length < 6) {
-            return false;
+        if($scope.user['password'].length > 4) {
+            $scope.passwordError = '';
         }
         return  true;
+    };
+
+    $scope.newPassError = '';
+
+    $scope.sendNewPassword = function(email)  {
+        if(email == undefined || email.trim() == '' ) {
+            $scope.newPassError =  i18nService.getText('form.reinitemail.ko');
+        } else {
+            backendService.sendNewPassword(email, function(error) {
+                if(error) {
+                    $scope.newPassError =  i18nService.getText('form.reinitemail.ko');
+                } else {
+                    $scope.newPassError =  i18nService.getText('form.reinitemail.ok');
+                }
+            });
+        }
+
     }
 
 }]);

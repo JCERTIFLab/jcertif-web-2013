@@ -26,7 +26,7 @@ app.factory('backendService', ['$http', function ($http) {
                     speakers = result;
                     $http.jsonp(backendUrl + '/session/list?jsonp=JSON_CALLBACK')
                         .success(function (result) {
-                            sessions = result;
+                            sessions = getValidSessions(result);
                             mergeSessionsAndSpeakers(speakers, sessions, allRooms);
                             callback();
                         });
@@ -34,6 +34,18 @@ app.factory('backendService', ['$http', function ($http) {
         });
 
     }
+
+    function getValidSessions(sessions) {
+        var sessionsLength = sessions.length;
+        var validSessions = [];
+        for(var iSes=0;iSes < sessionsLength; iSes++) {
+            if(sessions[iSes].start) {
+                validSessions[validSessions.length] = sessions[iSes];
+            }
+        }
+
+        return validSessions;
+    };
 
     function mergeSessionsAndSpeakers(speakers, sessions, allRooms) {
         var sessionsLength = sessions.length;
@@ -71,10 +83,21 @@ app.factory('backendService', ['$http', function ($http) {
         }
     }
 
+    function sendNewPassword(email, callback){
+        $http.jsonp(backendUrl + '/participant/' + email + '/lostpassword?jsonp=JSON_CALLBACK')
+            .success(function (result) {
+                callback();
+            }
+        ).error(function (result) {
+                callback('ERR');
+            });
+    }
+
     return {
         getSponsors : function(callback) { findAll('sponsor', callback); },
         getCategories : function(callback) { findAll('ref/category', callback); },
         getRooms : function(callback) { findAll('room', callback); },
+        sendNewPassword : function(email, callback) {sendNewPassword(email, callback)},
         getSpeakers : function(callback) {
             if(speakers == undefined) {
                 initSessionsAndSpeakers(function getSp(){
