@@ -1,5 +1,5 @@
-<div class="span12">
-    <form name="registerForm" class="form-horizontal" ng-controller="RegisterCtrl" >
+<div class="span12" ng-controller="RegisterCtrl" >
+    <form name="registerForm" class="form-horizontal" >
         <fieldset>
             <legend>{{ 'form.register.info' | i18n }}</legend>
             <div ng-show="isInProgress">
@@ -17,7 +17,17 @@
             <div class="control-group">
                 <button class="btn" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submit' | i18n}}</button>
             </div>
+        </fieldset>
+    </form>
 
+    <form name="sendNewPasswordForm" class="form-horizontal">
+        <fieldset>
+            <legend>Mot de passe oublié ?</legend>
+            <div class="control-group">
+                <jc-input-text input-type="email" label="'form.email'" property="newPassEmail" model="newPassEmail"></jc-input-text>
+                <button class="btn" ng-click="sendNewPassword(newPassEmail)">{{'form.send' | i18n }}</button>
+                <h4 class="c-red">{{ newPassError }}</h4>
+            </div>
 
         </fieldset>
     </form>

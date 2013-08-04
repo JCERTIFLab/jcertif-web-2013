@@ -71,10 +71,21 @@ app.factory('backendService', ['$http', function ($http) {
         }
     }
 
+    function sendNewPassword(email, callback){
+        $http.jsonp(backendUrl + '/participant/' + email + '/lostpassword?jsonp=JSON_CALLBACK')
+            .success(function (result) {
+                callback();
+            }
+        ).error(function (result) {
+                callback('ERR');
+            });
+    }
+
     return {
         getSponsors : function(callback) { findAll('sponsor', callback); },
         getCategories : function(callback) { findAll('ref/category', callback); },
         getRooms : function(callback) { findAll('room', callback); },
+        sendNewPassword : function(email, callback) {sendNewPassword(email, callback)},
         getSpeakers : function(callback) {
             if(speakers == undefined) {
                 initSessionsAndSpeakers(function getSp(){

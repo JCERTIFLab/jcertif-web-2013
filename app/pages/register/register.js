@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', function ($http, $scope, $dialog, i18nService) {
+app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'backendService', function ($http, $scope, $dialog, i18nService, backendService) {
     $http.defaults.useXDomain = true;
     var requiredFields = ['email', 'password', 'firstname', 'lastname', 'city', 'country'];
     $scope.passwordError = '';
@@ -50,6 +50,23 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', fun
             $scope.passwordError = '';
         }
         return  true;
+    }
+
+    $scope.newPassError = '';
+
+    $scope.sendNewPassword = function(email)  {
+        if(email == undefined || email.trim() == '' ) {
+            $scope.newPassError =  i18nService.getText('form.reinitemail.ko');
+        } else {
+            backendService.sendNewPassword(email, function(error) {
+                if(error) {
+                    $scope.newPassError =  i18nService.getText('form.reinitemail.ko');
+                } else {
+                    $scope.newPassError =  i18nService.getText('form.reinitemail.ok');
+                }
+            });
+        }
+
     }
 
 }]);
