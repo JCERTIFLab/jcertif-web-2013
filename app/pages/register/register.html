@@ -11,6 +11,9 @@
             <jc-input-text input-type="text" label="'form.lastname'" property="lastname" model="user.lastname"></jc-input-text>
             <jc-input-text input-type="text" label="'form.city'" property="city" model="user.city"></jc-input-text>
             <jc-input-text input-type="text" label="'form.country'" property="country" model="user.country"></jc-input-text>
+            <div>
+                <h4 class="c-red">{{ passwordError }}</h4>
+            </div>
             <div class="control-group">
                 <button class="btn" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submit' | i18n}}</button>
             </div>
