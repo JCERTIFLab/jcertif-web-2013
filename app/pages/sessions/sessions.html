@@ -3,6 +3,8 @@
         <h3>{{session.title}}</h3>
         <div>{{session.description}}</div>
         <br/>
+        <div><b>{{'session.keyword' | i18n }}</b>: {{session.keyword}}</div>
+        <br/>
         <div class="row" ng-repeat="speaker in session.fullSpeakers" ng-click="open(speaker)">
             <div class="span1"><img src="{{speaker.photo}}"></div>
             <div class="span11"><b>{{speaker.firstname}} {{speaker.lastname}}</b></div>

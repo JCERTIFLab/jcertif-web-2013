@@ -43,6 +43,7 @@ app.factory('i18nService', function () {
         'cfp.speaker' : 'Qui êtes vous ?',
         'cfp.paper' : 'Votre sujet',
         'agenda.day' : 'Jour',
+        'session.keyword' : 'Mots Clés',
         'form.register.info' : "Veuillez remplir ce formulaire pour vous inscrire à l'événement JCertif 2013",
         'form.password.minlength' : 'Attention le mot de passe doit être de 6 caractères minimum'
     }
@@ -90,6 +91,7 @@ app.factory('i18nService', function () {
         'cfp.speaker' : 'Who are you ?',
         'cfp.paper' : 'Your proposal',
         'agenda.day' : 'Day',
+        'session.keyword' : 'Keyword',
         'form.register.info' : "Please, fill form to sign up",
         'form.password.minlength' : 'Password : 6 characters min'
     }
