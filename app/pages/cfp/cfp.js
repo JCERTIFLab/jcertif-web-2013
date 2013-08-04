@@ -2,6 +2,9 @@
 
 app.controller('CfpCtrl', ['$http', '$scope', '$dialog', 'backendService', function ($http, $scope, $dialog, backendService) {
 
+    var userFields = ['email', 'password', 'firstname', 'lastname', 'city', 'country'];
+    var cfpFields = ['category', 'title', 'summary', 'keyword', 'description'];
+
     $scope.submitForm = function () {
         if($scope.speakerFoundEmail == '') {
             saveOrUpdateSpeaker('register');
@@ -64,6 +67,23 @@ app.controller('CfpCtrl', ['$http', '$scope', '$dialog', 'backendService', funct
     backendService.getCategories(function(categories) {
         $scope.categories = categories;
     });
+
+    $scope.isValid = function() {
+        if($scope.user == undefined) {
+            return false;
+        }
+        for(var i=0; i < userFields.length; i++) {
+            if( $scope.user[userFields[i]] == undefined || $scope.user[userFields[i]].trim() == '') {
+                return false;
+            }
+        }
+        for(var i=0; i < cfpFields.length; i++) {
+            if( $scope.cfp[cfpFields[i]] == undefined || $scope.cfp[cfpFields[i]].trim() == '') {
+                return false;
+            }
+        }
+        return  true;
+    };
 
 
 }]);

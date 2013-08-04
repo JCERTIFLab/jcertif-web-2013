@@ -32,7 +32,7 @@
             </div>
 
             <div class="control-group">
-                <button class="btn" ng-click="submitForm()">{{'form.submitCfp' | i18n}}</button>
+                <button class="btn" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submitCfp' | i18n}}</button>
             </div>
 
         </fieldset>

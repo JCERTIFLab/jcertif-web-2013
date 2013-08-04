@@ -50,7 +50,7 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'ba
             $scope.passwordError = '';
         }
         return  true;
-    }
+    };
 
     $scope.newPassError = '';
 
