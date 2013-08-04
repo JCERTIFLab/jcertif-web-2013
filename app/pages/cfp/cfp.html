@@ -5,7 +5,7 @@
                 <div class="span6" ng-show="checkSpeaker()">
                     <legend>{{ 'cfp.speaker' | i18n }}</legend>
                     <jc-input-text input-type="email" label="'form.email'" property="email" model="user.email"></jc-input-text>
-                    <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password"></jc-input-text>
+                    <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password" msg="{{'form.password.min' | i18n}}"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.firstname'" property="firstname" model="user.firstname"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.lastname'" property="lastname" model="user.lastname"></jc-input-text>
                     <jc-input-text input-type="text" label="'form.city'" property="city" model="user.city"></jc-input-text>
