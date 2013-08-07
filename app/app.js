@@ -1,7 +1,7 @@
 'use strict';
 
 var backendUrl = 'http://jcertif-backend.msomda.cloudbees.net';
-var app = angular.module('jcertifWeb2013App', ['ui.bootstrap']);
+var app = angular.module('jcertifWeb2013App', ['ui.bootstrap',  'ngCookies' ]);
 var googleUser = {};
 
 app.config(function ($routeProvider) {

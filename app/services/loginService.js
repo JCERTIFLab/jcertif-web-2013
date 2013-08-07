@@ -1,15 +1,49 @@
-app.factory('loginService', ['$http','$rootScope', function ($http, $rootScope) {
+app.factory('loginService', ['$http','$rootScope', '$cookieStore', function ($http, $rootScope, $cookieStore) {
+
+    var cookieAccessToken = $cookieStore.get('access_token');
+    var cookieEmail = $cookieStore.get('user_email');
+    var cookieProvider = $cookieStore.get('provider');
+
+    if(cookieAccessToken && cookieEmail && cookieProvider) {
+        findParticipant(cookieEmail,cookieAccessToken, cookieProvider,
+            function(participant, error) {
+                if(error == undefined) {
+                    saveLogin(participant, cookieAccessToken);
+                } else {
+                    logout();
+                }
+
+            });
+    }
 
     function logout(){
         $rootScope.logged = false;
         $rootScope.user = undefined;
         $rootScope.access_token = undefined;
+        $cookieStore.remove('access_token');
+        $cookieStore.remove('user_email');
+        $cookieStore.remove('provider');
     }
 
-    function saveLogin(participant, token){
+    function saveLogin(participant, access_token){
         $rootScope.logged = true;
         $rootScope.user = participant;
-        $rootScope.access_token = token.access_token;
+        $rootScope.access_token = access_token;
+        $cookieStore.put('access_token',access_token);
+        $cookieStore.put('user_email',participant.email);
+        $cookieStore.put('provider','userpass');
+    }
+
+    function findParticipant(email, access_token, provider, callback) {
+        $http.jsonp(backendUrl + '/participant/get/' + email + '?access_token=' + access_token + '&provider=' + provider + '&jsonp=JSON_CALLBACK')
+            .success(function (participant) {
+                saveLogin(participant, access_token);
+                callback(participant, undefined);
+            }
+        ).error(function (result) {
+                logout();
+                callback(undefined, 'ERR');
+            });
     }
 
     function login(email, password, callback) {
@@ -20,17 +54,8 @@ app.factory('loginService', ['$http','$rootScope', function ($http, $rootScope) 
                 password : password
             }
         ).success(function (token) {
-                $http.jsonp(backendUrl + '/participant/get/' + email + '?access_token=' + token.access_token + '&provider=userpass&jsonp=JSON_CALLBACK')
-                    .success(function (participant) {
-                        saveLogin(participant, token);
-                        callback(participant, undefined);
-                    }
-                ).error(function (result) {
-                        logout();
-                        callback(undefined, 'ERR');
-                    });
-            }
-        ).error(function (result) {
+                findParticipant(email, token.access_token, 'userpass', callback);
+            }).error(function (result) {
                 logout();
                 callback(undefined, 'ERR');
             });
@@ -41,7 +66,7 @@ app.factory('loginService', ['$http','$rootScope', function ($http, $rootScope) 
             login(email, password, callback);
         },
         logout : function(){
-           logout();
+            logout();
         }
     };
 }]);
