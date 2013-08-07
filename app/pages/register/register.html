@@ -9,13 +9,13 @@
                 <jc-google-plus clientid="854354618002"></jc-google-plus>
             </div>
             -->
-            <div ng-show="logged"><h3 class="c-red">Vous êtes authentifié</h3></div>
+            <div ng-show="logged"><h3 class="c-red">{{ 'form.register.alreadysignin' | i18n }}</h3></div>
         </div>
     </div>
     <div class="row" ng-show="!logged">
         <div class="span6">
 
-            <h3 class="c-red">Pas encore inscrit ?</h3>
+            <h3 class="c-red">{{ 'form.register.notsignup' | i18n }}</h3>
             <form name="registerForm" class="form-horizontal" ng-show="!alreadyRegistred">
                 <fieldset>
                     <legend>{{ 'form.register.info' | i18n }}</legend>
@@ -38,10 +38,10 @@
             </form>
         </div>
         <div class="span6">
-            <h3 class="c-red">Déjà inscrit ?</h3>
+            <h3 class="c-red">{{ 'form.register.alreadysignup' | i18n }}</h3>
             <form name="loginForm" class="form-horizontal">
                 <fieldset>
-                    <legend>Veuillez vous connecter !</legend>
+                    <legend>{{ 'form.register.pleaselogin' | i18n }}</legend>
                     <jc-input-text input-type="email" label="'form.email'" property="email" model="login.email"></jc-input-text>
                     <jc-input-text input-type="password" label="'form.password'" property="password" model="login.password" msg="{{'form.password.min' | i18n}}" ></jc-input-text>
                     <div>
@@ -55,7 +55,7 @@
 
             <form name="sendNewPasswordForm" class="form-horizontal" >
                 <fieldset>
-                    <legend>Mot de passe oublié ?</legend>
+                    <legend>{{ 'form.register.forgetpass' | i18n}}</legend>
                     <div class="control-group">
                         <jc-input-text input-type="email" label="'form.email'" property="newPassEmail" model="newPassEmail"></jc-input-text>
                         <button class="btn" ng-click="sendNewPassword(newPassEmail)">{{'form.send' | i18n }}</button>

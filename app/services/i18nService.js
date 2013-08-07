@@ -5,6 +5,7 @@ app.factory('i18nService', function () {
         "header.city": "IFC (EX-CCF) - Brazzaville",
         "header.date": "9 - 15 Sept. 2013",
         "header.login": "Se connecter",
+        "header.logout": "Se déconnecter",
         "header.nav.home": "Accueil",
         "header.nav.register": "S'inscrire",
         "header.nav.speakers": "Présentateurs",
@@ -45,6 +46,11 @@ app.factory('i18nService', function () {
         'agenda.day' : 'Jour',
         'session.keyword' : 'Mots Clés',
         'form.register.info' : "Veuillez remplir ce formulaire pour vous inscrire à l'événement JCertif 2013",
+        'form.register.notsignup' : 'Pas encore inscrit ?',
+        'form.register.alreadysignup' : 'Déjà inscrit ?',
+        'form.register.pleaselogin' : 'Veuillez vous connecter !',
+        'form.register.forgetpass' : 'Mot de passe oublié ?',
+        'form.register.alreadysignin' : 'Vous êtes déjà authentifié !',
         'form.password.minlength' : 'Attention le mot de passe doit être de 6 caractères minimum'
     }
 
@@ -53,6 +59,7 @@ app.factory('i18nService', function () {
         'header.city': 'IFC (EX-CCF) - Brazzaville',
         'header.date': '9 - 15 Sept. 2013',
         'header.login': 'Login',
+        "header.logout": "Logout",
         "header.nav.home": "Home",
         "header.nav.register": "Sign Up",
         "header.nav.speakers": "Speakers",
@@ -93,6 +100,11 @@ app.factory('i18nService', function () {
         'agenda.day' : 'Day',
         'session.keyword' : 'Keyword',
         'form.register.info' : "Please, fill form to sign up",
+        'form.register.notsignup' : 'Never sign up ?',
+        'form.register.alreadysignup' : 'Already registered ?',
+        'form.register.pleaselogin' : 'Login',
+        'form.register.forgetpass' : 'Password forgetted ?',
+        'form.register.alreadysignin' : 'You are already sign in !',
         'form.password.minlength' : 'Password : 6 characters min'
     }
 
