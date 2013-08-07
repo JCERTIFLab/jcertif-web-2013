@@ -1,9 +1,18 @@
 'use strict';
 
-app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'backendService', function ($http, $scope, $dialog, i18nService, backendService) {
+app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', '$location', 'i18nService', 'backendService', 'loginService', function ($http, $scope, $dialog, $location, i18nService, backendService, loginService) {
     $http.defaults.useXDomain = true;
     var requiredFields = ['email', 'password', 'firstname', 'lastname', 'city', 'country'];
     $scope.passwordError = '';
+    $scope.login = function() {
+        loginService.login($scope.login.email, $scope.login.password, function(participant, error){
+            if(error == undefined) {
+                $scope.logged = true;
+                $location.path('/agenda')
+            }
+        });
+    }
+
     $scope.submitForm = function () {
         if($scope.user['password'].length < 6) {
             $scope.passwordError =  i18nService.getText('form.password.minlength');
@@ -68,5 +77,8 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'ba
         }
 
     }
+
+
+
 
 }]);

@@ -34,14 +34,16 @@
                     <div class="pointer-vert-date pull-left l-header-img-margin"></div>
                     <h4 class="pull-left f-family-2">{{"header.date" | i18n }}</h4>
                     <div class="pointer-jaune-login pull-left l-header-img-margin"></div>
-                    <a href="#/register" class="c-yellow-hover"><h4 class="f-family-2">{{"header.login" | i18n }}</h4></a>
+                    <a href="#/register" class="c-yellow-hover" ng-show="!logged"><h4 class="f-family-2">{{"header.login" | i18n }}</h4></a>
+                    <a ng-click="logout()" class="c-yellow-hover" ng-show="logged"><h4 class="f-family-2">Se déconnecter</h4></a>
+
                 <div class="fr" ng-click="changeLang('FR')" ng-class="FRClass"></div>
                 <div class="en" ng-click="changeLang('EN')" ng-class="ENClass"></div>
             </div>
         </div>
         <div class="row">
-            <div class="span6">&nbsp;</div>
-
+            <div class="pull-right c-red" ng-show="logged"><h5>{{ user.email }}</h5></div>
+            <div class="span6" ng-show="!logged">&nbsp;</div>
         </div>
     </div>
 </div>

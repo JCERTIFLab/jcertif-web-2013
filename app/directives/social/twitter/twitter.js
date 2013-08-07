@@ -4,7 +4,7 @@ app.directive('jcTwitter', function() {
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: 'directives/twitter/twitter.html',
+        templateUrl: 'directives/social/twitter/twitter.html',
         link: function (scope, element, attributes) {
             !function(d,s,id){
                 var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';

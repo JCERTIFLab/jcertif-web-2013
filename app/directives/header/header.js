@@ -1,6 +1,8 @@
 'use strict';
 
-app.directive('jcHeader', ['i18nService', '$window', function (i18nService,  $window) {
+app.directive('jcHeader', ['i18nService', 'loginService', '$window',  function (i18nService, loginService, $window) {
+
+
     return {
         restrict: 'E',
         replace: true,
@@ -23,6 +25,10 @@ app.directive('jcHeader', ['i18nService', '$window', function (i18nService,  $wi
                 } else {
                     scope.changeLang('EN');
                 }
+            }
+
+            scope.logout = function() {
+                loginService.logout();
             }
 
         }
