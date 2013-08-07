@@ -1,9 +1,19 @@
 'use strict';
 
-app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'backendService', function ($http, $scope, $dialog, i18nService, backendService) {
+app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', '$location', 'i18nService', 'backendService', 'loginService', function ($http, $scope, $dialog, $location, i18nService, backendService, loginService) {
     $http.defaults.useXDomain = true;
     var requiredFields = ['email', 'password', 'firstname', 'lastname', 'city', 'country'];
     $scope.passwordError = '';
+    $scope.login = function() {
+        loginService.login($scope.login.email, $scope.login.password, function(participant, error){
+            if(error == undefined) {
+                $location.path('/agenda')
+            }
+        });
+    }
+
+    $scope.goToAgenda = false;
+
     $scope.submitForm = function () {
         if($scope.user['password'].length < 6) {
             $scope.passwordError =  i18nService.getText('form.password.minlength');
@@ -13,6 +23,17 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'ba
                 .success(function (result) {
                     $scope.isInProgress = false;
                     openConfirmDialog();
+                    loginService.login($scope.user.email, $scope.user.password, function(participant, error){
+
+                        if(error == undefined) {
+                            if($scope.goToAgenda) {
+                                $location.path('/agenda');
+                            } else {
+                                $scope.goToAgenda = true;
+                            }
+
+                        }
+                    });
                     $scope.user = {};
                 })
                 .error(function (result) {
@@ -20,14 +41,19 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'ba
                     openErrorDialog();
                 });
         }
-
     }
 
     function openConfirmDialog() {
         $dialog.messageBox(
             i18nService.getText('form.register.ok'),
             i18nService.getText('form.register.ok.msg')
-        ).open();
+        ).open().then(function(result){
+            if($scope.goToAgenda) {
+                $location.path('/agenda');
+            } else {
+                $scope.goToAgenda = true;
+            }
+        });;
     }
 
     function openErrorDialog() {
@@ -68,5 +94,8 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', 'i18nService', 'ba
         }
 
     }
+
+
+
 
 }]);
