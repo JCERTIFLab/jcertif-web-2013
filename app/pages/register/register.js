@@ -7,11 +7,12 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', '$location', 'i18n
     $scope.login = function() {
         loginService.login($scope.login.email, $scope.login.password, function(participant, error){
             if(error == undefined) {
-                $scope.logged = true;
                 $location.path('/agenda')
             }
         });
     }
+
+    $scope.goToAgenda = false;
 
     $scope.submitForm = function () {
         if($scope.user['password'].length < 6) {
@@ -22,6 +23,17 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', '$location', 'i18n
                 .success(function (result) {
                     $scope.isInProgress = false;
                     openConfirmDialog();
+                    loginService.login($scope.user.email, $scope.user.password, function(participant, error){
+
+                        if(error == undefined) {
+                            if($scope.goToAgenda) {
+                                $location.path('/agenda');
+                            } else {
+                                $scope.goToAgenda = true;
+                            }
+
+                        }
+                    });
                     $scope.user = {};
                 })
                 .error(function (result) {
@@ -29,14 +41,19 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', '$location', 'i18n
                     openErrorDialog();
                 });
         }
-
     }
 
     function openConfirmDialog() {
         $dialog.messageBox(
             i18nService.getText('form.register.ok'),
             i18nService.getText('form.register.ok.msg')
-        ).open();
+        ).open().then(function(result){
+            if($scope.goToAgenda) {
+                $location.path('/agenda');
+            } else {
+                $scope.goToAgenda = true;
+            }
+        });;
     }
 
     function openErrorDialog() {
