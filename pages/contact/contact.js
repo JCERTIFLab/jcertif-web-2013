@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('ContactCtrl' {
+app.controller('ContactCtrl', function() {
 
    
 });
