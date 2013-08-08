@@ -95,7 +95,24 @@ module.exports = function (grunt) {
                         cwd: '<%= yeoman.app %>',
                         dest: '<%= yeoman.dist %>',
                         src: [
-                            '**/*'
+                            'directives/**/*.html',
+                            'directives/**/*.js',
+                            'pages/**/*.html',
+                            'pages/**/*.js',
+                            'services/**/*.js',
+                            'images/*',
+                            'filters/**/*.js',
+                            '*.html',
+                            '*.js',
+                            'styles/**/*.ttf',
+                            'components/es5-shim/es5-shim.js',
+                            'components/json3/lib/json3.min.js',
+                            'components/angular/angular.js',
+                            'components/angular-resource/angular-resource.js',
+                            'components/angular-cookies/angular-cookies.js',
+                            'components/angular-sanitize/angular-sanitize.js',
+                            'components/angular-bootstrap/ui-bootstrap.min.js',
+                            'components/angular-bootstrap/ui-bootstrap-tpls.min.js'
                         ]
                     }
                 ]
@@ -136,7 +153,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dist', [
         'clean:dist',
         'less:dist',
-        'copy'
+        'copy:dist'
     ]);
 
     grunt.registerTask('default', ['dist']);
