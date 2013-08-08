@@ -104,15 +104,7 @@ module.exports = function (grunt) {
                             'filters/**/*.js',
                             '*.html',
                             '*.js',
-                            'styles/**/*.ttf',
-                            'components/es5-shim/es5-shim.js',
-                            'components/json3/lib/json3.min.js',
-                            'components/angular/angular.js',
-                            'components/angular-resource/angular-resource.js',
-                            'components/angular-cookies/angular-cookies.js',
-                            'components/angular-sanitize/angular-sanitize.js',
-                            'components/angular-bootstrap/ui-bootstrap.min.js',
-                            'components/angular-bootstrap/ui-bootstrap-tpls.min.js'
+                            'styles/**/*.ttf'
                         ]
                     }
                 ]
@@ -136,6 +128,63 @@ module.exports = function (grunt) {
                     "dist/styles/main.css": "<%= yeoman.app %>/styles/main.less"
                 }
             }
+        },
+        useminPrepare: {
+            html: '<%= yeoman.app %>/index.html',
+            options: {
+                dest: '<%= yeoman.dist %>'
+            }
+        },
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: [
+                    '<%= yeoman.app %>/components/es5-shim/es5-shim.js',
+                    '<%= yeoman.app %>/components/json3/lib/json3.min.js',
+                    '<%= yeoman.app %>/components/angular/angular.min.js',
+                    '<%= yeoman.app %>/components/angular-resource/angular-resource.js',
+                    '<%= yeoman.app %>/components/angular-cookies/angular-cookies.js',
+                    '<%= yeoman.app %>/components/angular-bootstrap/ui-bootstrap.min.js',
+                    '<%= yeoman.app %>/components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                    '<%= yeoman.app %>/app.js',
+                    '<%= yeoman.app %>/directives/**/*.js',
+                    '<%= yeoman.app %>/pages/**/*.js',
+                    '<%= yeoman.app %>/services/**/*.js',
+                    '<%= yeoman.app %>/filters/**/*.js'
+
+                ],
+                dest: 'dist/scripts.js'
+            }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    /*removeCommentsFromCDATA: true,
+                     // https://github.com/yeoman/grunt-usemin/issues/44
+                     //collapseWhitespace: true,
+                     collapseBooleanAttributes: true,
+                     removeAttributeQuotes: true,
+                     removeRedundantAttributes: true,
+                     useShortDoctype: true,
+                     removeEmptyAttributes: true,
+                     removeOptionalTags: true*/
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>',
+                    src: ['index.html'],
+                    dest: '<%= yeoman.dist %>'
+                }]
+            }
+        },
+        usemin: {
+            html: ['<%= yeoman.dist %>/{,*/}*.html'],
+            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+            options: {
+                dirs: ['<%= yeoman.dist %>']
+            }
         }
     });
 
@@ -153,7 +202,12 @@ module.exports = function (grunt) {
     grunt.registerTask('dist', [
         'clean:dist',
         'less:dist',
-        'copy:dist'
+        'concat:dist',
+        'useminPrepare',
+        'htmlmin:dist',
+        'copy:dist',
+        'usemin'
+
     ]);
 
     grunt.registerTask('default', ['dist']);
