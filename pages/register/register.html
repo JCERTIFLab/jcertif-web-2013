@@ -1,6 +1,6 @@
-<div class="span12" ng-controller="RegisterCtrl" >
+<div class="col-lg-12" ng-controller="RegisterCtrl" >
     <div class="row">
-        <div class="span6">
+        <div class="col-lg-6">
         <!--
             TODO SIGN IN G+
             <div id="connected" class="pull-right c-red" ></div>
@@ -13,57 +13,64 @@
         </div>
     </div>
     <div class="row" ng-show="!logged">
-        <div class="span6">
+        <div class="col-lg-6">
 
-            <h3 class="c-red">{{ 'form.register.notsignup' | i18n }}</h3>
-            <form name="registerForm" class="form-horizontal" ng-show="!alreadyRegistred">
-                <fieldset>
-                    <legend>{{ 'form.register.info' | i18n }}</legend>
-                    <div ng-show="isInProgress">
-                        <h3 class="c-red">{{ 'form.register.wait' | i18n }}</h3>
-                    </div>
-                    <jc-input-text input-type="email" label="'form.email'" property="email" model="user.email"></jc-input-text>
-                    <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password" msg="{{'form.password.min' | i18n}}" ></jc-input-text>
-                    <jc-input-text input-type="text" label="'form.firstname'" property="firstname" model="user.firstname"></jc-input-text>
-                    <jc-input-text input-type="text" label="'form.lastname'" property="lastname" model="user.lastname"></jc-input-text>
-                    <jc-input-text input-type="text" label="'form.city'" property="city" model="user.city"></jc-input-text>
-                    <jc-input-text input-type="text" label="'form.country'" property="country" model="user.country"></jc-input-text>
-                    <div>
-                        <h4 class="c-red">{{ passwordError }}</h4>
-                    </div>
-                    <div class="control-group">
-                        <button class="btn" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submit' | i18n}}</button>
-                    </div>
-                </fieldset>
-            </form>
+            <div class="jbox">
+                <h3 class="c-red">{{ 'form.register.notsignup' | i18n }}</h3>
+                <form name="registerForm" class="form-horizontal" ng-show="!alreadyRegistred">
+                    <fieldset>
+                        <legend>{{ 'form.register.info' | i18n }}</legend>
+                        <div ng-show="isInProgress">
+                            <h3 class="c-red">{{ 'form.register.wait' | i18n }}</h3>
+                        </div>
+                        <jc-input-text input-type="email" label="'form.email'" property="email" model="user.email"></jc-input-text>
+                        <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password" msg="{{'form.password.min' | i18n}}" ></jc-input-text>
+                        <jc-input-text input-type="text" label="'form.firstname'" property="firstname" model="user.firstname"></jc-input-text>
+                        <jc-input-text input-type="text" label="'form.lastname'" property="lastname" model="user.lastname"></jc-input-text>
+                        <jc-input-text input-type="text" label="'form.city'" property="city" model="user.city"></jc-input-text>
+                        <jc-input-text input-type="text" label="'form.country'" property="country" model="user.country"></jc-input-text>
+                        <div>
+                            <h4 class="c-red">{{ passwordError }}</h4>
+                        </div>
+                        <div class="control-group">
+                            <button class="btn btn-primary btn-lg pull-right" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submit' | i18n}}</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <br/>
         </div>
-        <div class="span6">
-            <h3 class="c-red">{{ 'form.register.alreadysignup' | i18n }}</h3>
-            <form name="loginForm" class="form-horizontal">
-                <fieldset>
-                    <legend>{{ 'form.register.pleaselogin' | i18n }}</legend>
-                    <jc-input-text input-type="email" label="'form.email'" property="email" model="login.email"></jc-input-text>
-                    <jc-input-text input-type="password" label="'form.password'" property="password" model="login.password" msg="{{'form.password.min' | i18n}}" ></jc-input-text>
-                    <div>
-                        <h4 class="c-red">{{ loginError }}</h4>
-                    </div>
-                    <div class="control-group">
-                        <button class="btn" ng-click="login()">{{'form.send' | i18n }}</button>
-                    </div>
-                </fieldset>
-            </form>
+        <div class="col-lg-6">
+            <div class="jbox">
+                <h3 class="c-red">{{ 'form.register.alreadysignup' | i18n }}</h3>
+                <form name="loginForm" class="form-horizontal">
+                    <fieldset>
+                        <legend>{{ 'form.register.pleaselogin' | i18n }}</legend>
+                        <jc-input-text input-type="email" label="'form.email'" property="email" model="login.email"></jc-input-text>
+                        <jc-input-text input-type="password" label="'form.password'" property="password" model="login.password" msg="{{'form.password.min' | i18n}}" ></jc-input-text>
+                        <div>
+                            <h4 class="c-red">{{ loginError }}</h4>
+                        </div>
+                        <div class="control-group">
+                            <button class="btn btn-primary btn-lg pull-right" ng-click="login()">{{'form.send' | i18n }}</button>
+                        </div>
+                    </fieldset>
+                </form>
+                <br/>
+                <form name="sendNewPasswordForm" class="form-horizontal" >
+                    <fieldset>
+                        <legend>{{ 'form.register.forgetpass' | i18n}}</legend>
+                        <div class="control-group">
+                            <jc-input-text input-type="email" label="'form.email'" property="newPassEmail" model="newPassEmail"></jc-input-text>
+                            <button class="btn btn-primary btn-lg pull-right" ng-click="sendNewPassword(newPassEmail)">{{'form.send' | i18n }}</button>
+                            <h4 class="c-red">{{ newPassError }}</h4>
+                        </div>
 
-            <form name="sendNewPasswordForm" class="form-horizontal" >
-                <fieldset>
-                    <legend>{{ 'form.register.forgetpass' | i18n}}</legend>
-                    <div class="control-group">
-                        <jc-input-text input-type="email" label="'form.email'" property="newPassEmail" model="newPassEmail"></jc-input-text>
-                        <button class="btn" ng-click="sendNewPassword(newPassEmail)">{{'form.send' | i18n }}</button>
-                        <h4 class="c-red">{{ newPassError }}</h4>
-                    </div>
+                    </fieldset>
+                </form>
+            </div>
 
-                </fieldset>
-            </form>
         </div>
     </div>
 

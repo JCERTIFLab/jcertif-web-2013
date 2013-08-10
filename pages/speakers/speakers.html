@@ -1,11 +1,9 @@
 <div ng-controller="SpeakersCtrl" class="container">
-    <ul class="thumbnails">
-        <li class="span3" ng-repeat="speaker in speakers">
-            <div ng-click="openDialog(speaker)" class="thumbnail btn">
-                <img ng-src="{{speaker.photo}}" width="220">
+        <div class="col-lg-3" ng-repeat="speaker in speakers">
+            <a ng-click="openDialog(speaker)" class="thumbnail btn btn-lg btn-primary">
+                <img ng-src="{{speaker.photo}}" width="220" class="img-thumbnail img-responsive">
                 <h4 class="l-text-center">{{speaker.firstname}} {{speaker.lastname}}</h4>
-            </div>
-        </li>
-    </ul>
-
+            </a>
+            <br/>
+        </div>
 </div>
