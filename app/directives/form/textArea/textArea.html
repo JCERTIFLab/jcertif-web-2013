@@ -1,7 +1,7 @@
-<div class="control-group">
-    <label class="control-label" for="{{property}}">{{label | i18n}}</label>
+<div class="form-group">
+    <label class="col-lg-3 control-label" for="{{property}}">{{label | i18n}}</label>
 
-    <div class="controls">
-        <textarea id="{{property}}" name="{{property}}" ng-model="model" rows="10"></textarea>
+    <div class="col-lg-9">
+        <textarea id="{{property}}" class="form-control" name="{{property}}" ng-model="model" rows="10"></textarea>
     </div>
 </div>

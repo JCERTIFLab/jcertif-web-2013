@@ -1,7 +1,7 @@
-<div class="control-group">
-    <label class="control-label" for="{{property}}">{{label | i18n}}</label>
+<div class="form-group">
+    <label class="col-lg-3 control-label" for="{{property}}">{{label | i18n}}</label>
 
-    <div class="controls">
-        <input type="{{inputType}}" id="{{property}}" name="{{property}}" ng-model="model" placeholder="{{msg}}"/>
+    <div class="col-lg-9">
+        <input type="{{inputType}}" class="form-control" id="{{property}}" name="{{property}}" ng-model="model" placeholder="{{msg}}"/>
     </div>
 </div>

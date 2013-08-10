@@ -1,14 +1,28 @@
 <div ng-controller="SessionsCtrl" class="container">
-    <div ng-repeat="session in sessions" class="well well-large">
-        <h3>{{session.title}}</h3>
-        <div>{{session.description}}</div>
-        <br/>
-        <div><b>{{'session.keyword' | i18n }}</b>: {{session.keyword}}</div>
-        <br/>
-        <div class="row" ng-repeat="speaker in session.fullSpeakers" ng-click="open(speaker)">
-            <div class="span1"><img src="{{speaker.photo}}"></div>
-            <div class="span11"><b>{{speaker.firstname}} {{speaker.lastname}}</b></div>
+    <div ng-repeat="session in sessions">
+        <div class="jbox">
+            <h3>{{session.title}}</h3>
+            <div>{{session.description}}</div>
+            <br/>
+            <div><b>{{'session.keyword' | i18n }}</b>: {{session.keyword}}</div>
+            <br/>
+            <div class="row" ng-repeat="speaker in session.fullSpeakers" ng-click="open(speaker)">
+
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-1">
+                            <img src="{{speaker.photo}}" class="img-thumbnail">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <b>{{speaker.firstname}} {{speaker.lastname}}</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+<br/>
     </div>
 
     <!-- TODO Mutualiser la popup du détail d'un speaker -->
@@ -18,10 +32,10 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="span2">
-                    <img ng-src="{{selectedSpeaker.photo}}">
+                <div>
+                    <img ng-src="{{selectedSpeaker.photo}}" class="col-lg-3">
                 </div>
-                <div class="span4">
+                <div class="col-lg-9">
                     {{selectedSpeaker.biography}}
                 </div>
             </div>

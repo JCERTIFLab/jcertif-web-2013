@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
-        <div class="span9">
+        <div class="col-lg-9">
             <div class="">
                 <div class="row">
-                    <div class="span9">
+                    <div class="col-lg-12">
                         <h3 class="f-family-1 c-red">{{"home.news" | i18n }}</h3>
-                        <div>
+                        <div class="jbox">
                             <carousel interval="carouselInterval">
                                 <slide ng-repeat="slide in slides" active="slide.active">
-                                    <img ng-src="{{slide.image}}">
+                                    <img ng-src="{{slide.image}}" width="100%">
                                 </slide>
                             </carousel>
                         </div>
@@ -18,53 +18,53 @@
             </div>
 
             <div class="row">
-                <div class="span9">
+                <div class="col-lg-12">
                     <h3 class="f-family-1 c-red">&nbsp;</h3>
                 </div>
             </div>
-            <div class="gray-box">
+            <div class="jbox">
                 <div class="row">
-                    <div class="span9">
+                    <div class="col-lg-12">
                         <h3 class="f-family-1 c-red">&nbsp;{{"home.sponsors" | i18n }}</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="span9">
-                        <ul class="thumbnails">
-                            <li class="span3" ng-repeat="sponsor in sponsors">
+                    <div class="col-lg-12">
+                            <div class="col-lg-4 pull-left" ng-repeat="sponsor in sponsors">
                                 <a href="{{sponsor.website}}" class="thumbnail">
                                     <img ng-src="{{sponsor.logo}}" style="margin:auto;">
                                 </a>
-                            </li>
-                        </ul>
+                            </div>
 
                     </div>
                 </div>
             </div>
             <br/>
         </div>
-        <div class="span3">
+        <div class="col-lg-3">
             <div class="row">
-                <div class="span3">
+                <div class="col-lg-12">
                     <div class="row">
-                        <div class="span3">
-                                <h3 class="f-family-1 c-red">{{"home.followus" | i18n }}</h3>
+                        <div class="col-lg-12">
+                            <h3 class="f-family-1 c-red">{{"home.followus" | i18n }}</h3>
                         </div>
-                        <div class="span3 gray-box">
-                            <a  href="https://twitter.com/jcertif" target="_blank"><img src="images/twitter-btn.png" class="pull-left l-social-img-margin"/></a>
-                            <a  href="https://plus.google.com/101565004503136979275" target="_blank"><img src="images/g+-btn.png" class="pull-left l-social-img-margin"/></a>
-                            <a  href="https://www.facebook.com/JCertif" target="_blank"><img src="images/fcbk-btn.png" class="pull-left l-social-img-margin"/></a>
-                            <a  href="http://www.youtube.com/results?search_query=jcertif" target="_blank"><img src="images/youtube-btn.png" class="pull-left l-social-img-margin"/></a>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="span3">&nbsp;
+                        <div class="col-lg-12">
+                            <div class="jbox col-lg-12">
+                                <a  href="https://twitter.com/jcertif" target="_blank"><img src="images/twitter-btn.png" class="pull-left l-social-img-margin"/></a>
+                                <a  href="https://plus.google.com/101565004503136979275" target="_blank"><img src="images/g+-btn.png" class="pull-left l-social-img-margin"/></a>
+                                <a  href="https://www.facebook.com/JCertif" target="_blank"><img src="images/fcbk-btn.png" class="pull-left l-social-img-margin"/></a>
+                                <a  href="http://www.youtube.com/results?search_query=jcertif" target="_blank"><img src="images/youtube-btn.png" class="pull-left l-social-img-margin"/></a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="span3 c-gray">
+                        <div class="col-lg-12">&nbsp;
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 c-gray">
                             <jc-twitter></jc-twitter>
 
                         </div>
