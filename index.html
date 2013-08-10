@@ -26,7 +26,12 @@
     <br/>
 
     <div class=" c-box-shadow">
-        <jc-header  class="c-gray"></jc-header>
+        <div class="visible-sm">
+            <div class="fr pull-left" ng-click="changeLang('FR')" ng-class="FRClass"></div>
+            <div class="en" ng-click="changeLang('EN')" ng-class="ENClass"></div>
+            <div class="jcertif-logo"></div>
+        </div>
+        <jc-header  class="c-gray hidden-sm"></jc-header>
         <jc-menu class="c-gray"></jc-menu>
         <div class="row c-gray" ng-view></div>
         <jc-footer></jc-footer>

@@ -1,11 +1,11 @@
-<div class="container">
+<div class="col-lg-12 container">
     <div class="row">
         <div class="col-lg-9">
-            <div class="">
+            <div class="jbox">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="f-family-1 c-red">{{"home.news" | i18n }}</h3>
-                        <div class="jbox">
+                    <div class="col-lg-12 ">
+                        <h1>{{"home.news" | i18n }}</h1>
+                        <div class="body-back">
                             <carousel interval="carouselInterval">
                                 <slide ng-repeat="slide in slides" active="slide.active">
                                     <img ng-src="{{slide.image}}" width="100%">
@@ -19,13 +19,13 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="f-family-1 c-red">&nbsp;</h3>
+                    <h3>&nbsp;</h3>
                 </div>
             </div>
             <div class="jbox">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="f-family-1 c-red">&nbsp;{{"home.sponsors" | i18n }}</h3>
+                        <h1>&nbsp;{{"home.sponsors" | i18n }}</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -46,7 +46,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h3 class="f-family-1 c-red">{{"home.followus" | i18n }}</h3>
+                            <h1>{{"home.followus" | i18n }}</h1>
                         </div>
                         <div class="col-lg-12">
                             <div class="jbox col-lg-12">
