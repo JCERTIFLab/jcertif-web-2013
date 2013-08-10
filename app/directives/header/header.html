@@ -1,44 +1,55 @@
-<div class="row header-bckgd l-header-padding-top c-header">
+<div class="row header-back l-header-padding-top c-header">
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-3">
-                <div class="jcertif-logo"></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="jcertif-logo"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="logo-html5 pull-left l-header-img-margin"></div>
+                        <div class="logo-android pull-left l-header-img-margin"></div>
+                        <div class="logo-java pull-left l-header-img-margin"></div>
+                        <div class="logo-php pull-left l-header-img-margin"></div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-5 col-offset-4">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-                            <div class="col-lg-11 col-offset-1">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="pointer-conference-header pull-left l-header-img-margin"></div>
-                                        <h3 class="f-family-1">{{"header.conference" | i18n }}</h3>
-                                        <h3 class="f-family-1">{{"header.city" | i18n }}</h3>
+                            <div class="col-lg-12">
+                                <div class="row l-header-img-margin">
+                                    <div class="col-lg-2">
+                                        <div class="point-conference"></div>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <div class="conference">{{"header.conference" | i18n }}</div>
+                                        <div class="conference">{{"header.city" | i18n }}</div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="point-vert pull-left"></div>
+                                <div class="pull-left login">{{"header.date" | i18n }}</div>
+                                <div class="point-jaune pull-left"></div>
+                                <a href="#/register" class="c-yellow-hover" ng-show="!logged"><div class="login">{{"header.login" | i18n }}</div></a>
+                                <a ng-click="logout()" class="c-yellow-hover" ng-show="logged"><div class="login">{{"header.logout" | i18n }}</div></a>
+                            </div>
+                        </div>
+                        <div class="row l-header-img-margin">
+                            <div class="col-lg-12">
+                                <div class="fr" ng-click="changeLang('FR')" ng-class="FRClass"></div>
+                                <div class="en" ng-click="changeLang('EN')" ng-class="ENClass"></div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="html5-icon pull-left l-header-img-margin"></div>
-                <div class="android-icon pull-left l-header-img-margin"></div>
-                <div class="java-icon pull-left l-header-img-margin"></div>
-                <div class="php-icon pull-left l-header-img-margin"></div>
-            </div>
-            <div class="col-lg-4 col-offset-5">
-                    <div class="pointer-vert-date pull-left l-header-img-margin"></div>
-                    <h4 class="pull-left f-family-2">{{"header.date" | i18n }}</h4>
-                    <div class="pointer-jaune-login pull-left l-header-img-margin"></div>
-                    <a href="#/register" class="c-yellow-hover" ng-show="!logged"><h4 class="f-family-2">{{"header.login" | i18n }}</h4></a>
-                    <a ng-click="logout()" class="c-yellow-hover" ng-show="logged"><h4 class="f-family-2">{{"header.logout" | i18n }}</h4></a>
-
-                <div class="fr" ng-click="changeLang('FR')" ng-class="FRClass"></div>
-                <div class="en" ng-click="changeLang('EN')" ng-class="ENClass"></div>
             </div>
         </div>
         <div class="row">
