@@ -9,29 +9,29 @@ module.exports = function (grunt) {
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     // configurable paths
-    var yeomanConfig = {
+    var jcertifConfig = {
         app: 'app',
         dist: 'dist'
     };
 
     try {
-        yeomanConfig.app = require('./bower.json').appPath || yeomanConfig.app;
+        jcertifConfig.app = require('./bower.json').appPath || jcertifConfig.app;
     } catch (e) {
     }
 
     grunt.initConfig({
-        yeoman: yeomanConfig,
+        jcertif: jcertifConfig,
         watch: {
             less : {
-                files : ["<%= yeoman.app %>/styles/{,*/}*.less"],
+                files : ["<%= jcertif.app %>/styles/{,*/}*.less"],
                 tasks : ['less:dev']
             },
             livereload: {
                 files: [
-                    '<%= yeoman.app %>/{,*/}*.html',
-                    '{.tmp,<%= yeoman.app %>}/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/{,*/}*.js',
-                    '<%= yeoman.app %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                    '<%= jcertif.app %>/{,*/}*.html',
+                    '{.tmp,<%= jcertif.app %>}/{,*/}*.css',
+                    '{.tmp,<%= jcertif.app %>}/{,*/}*.js',
+                    '<%= jcertif.app %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ],
                 tasks: ['livereload']
             }
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
                         return [
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
+                            mountFolder(connect, jcertifConfig.app)
                         ];
                     }
                 }
@@ -66,8 +66,8 @@ module.exports = function (grunt) {
                         dot: true,
                         src: [
                             '.tmp',
-                            '<%= yeoman.dist %>/*',
-                            '!<%= yeoman.dist %>/.git*'
+                            '<%= jcertif.dist %>/*',
+                            '!<%= jcertif.dist %>/.git*'
                         ]
                     }
                 ]
@@ -78,10 +78,10 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                        '<%= yeoman.dist %>/styles/fonts/*'
+                        '<%= jcertif.dist %>/scripts/{,*/}*.js',
+                        '<%= jcertif.dist %>/styles/{,*/}*.css',
+                        '<%= jcertif.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                        '<%= jcertif.dist %>/styles/fonts/*'
                     ]
                 }
             }
@@ -92,8 +92,8 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         dot: true,
-                        cwd: '<%= yeoman.app %>',
-                        dest: '<%= yeoman.dist %>',
+                        cwd: '<%= jcertif.app %>',
+                        dest: '<%= jcertif.dist %>',
                         src: [
                             'directives/**/*.html',
                             'directives/**/*.js',
@@ -113,26 +113,26 @@ module.exports = function (grunt) {
         less: {
             dev: {
                 options: {
-                    paths: ["<%= yeoman.app %>/styles","<%= yeoman.app %>/components/bootstrap/less"]
+                    paths: ["<%= jcertif.app %>/styles","<%= jcertif.app %>/components/bootstrap/less"]
                 },
                 files: {
-                    ".tmp/styles/main.css": "<%= yeoman.app %>/styles/main.less"
+                    ".tmp/styles/main.css": "<%= jcertif.app %>/styles/main.less"
                 }
             },
             dist: {
                 options: {
-                    paths: ["<%= yeoman.app %>/styles","<%= yeoman.app %>/components/bootstrap/less"],
+                    paths: ["<%= jcertif.app %>/styles","<%= jcertif.app %>/components/bootstrap/less"],
                     yuicompress: true
                 },
                 files: {
-                    "dist/styles/main.css": "<%= yeoman.app %>/styles/main.less"
+                    "dist/styles/main.css": "<%= jcertif.app %>/styles/main.less"
                 }
             }
         },
         useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
+            html: '<%= jcertif.app %>/index.html',
             options: {
-                dest: '<%= yeoman.dist %>'
+                dest: '<%= jcertif.dist %>'
             }
         },
         concat: {
@@ -141,18 +141,18 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    '<%= yeoman.app %>/components/es5-shim/es5-shim.js',
-                    '<%= yeoman.app %>/components/json3/lib/json3.min.js',
-                    '<%= yeoman.app %>/components/angular/angular.min.js',
-                    '<%= yeoman.app %>/components/angular-resource/angular-resource.js',
-                    '<%= yeoman.app %>/components/angular-cookies/angular-cookies.js',
-                    '<%= yeoman.app %>/components/angular-bootstrap/ui-bootstrap.min.js',
-                    '<%= yeoman.app %>/components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-                    '<%= yeoman.app %>/app.js',
-                    '<%= yeoman.app %>/directives/**/*.js',
-                    '<%= yeoman.app %>/pages/**/*.js',
-                    '<%= yeoman.app %>/services/**/*.js',
-                    '<%= yeoman.app %>/filters/**/*.js'
+                    '<%= jcertif.app %>/components/es5-shim/es5-shim.js',
+                    '<%= jcertif.app %>/components/json3/lib/json3.min.js',
+                    '<%= jcertif.app %>/components/angular/angular.min.js',
+                    '<%= jcertif.app %>/components/angular-resource/angular-resource.js',
+                    '<%= jcertif.app %>/components/angular-cookies/angular-cookies.js',
+                    '<%= jcertif.app %>/components/angular-bootstrap/ui-bootstrap.min.js',
+                    '<%= jcertif.app %>/components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                    '<%= jcertif.app %>/app.js',
+                    '<%= jcertif.app %>/directives/**/*.js',
+                    '<%= jcertif.app %>/pages/**/*.js',
+                    '<%= jcertif.app %>/services/**/*.js',
+                    '<%= jcertif.app %>/filters/**/*.js'
 
                 ],
                 dest: 'dist/scripts.js'
@@ -162,7 +162,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     /*removeCommentsFromCDATA: true,
-                     // https://github.com/yeoman/grunt-usemin/issues/44
+                     // https://github.com/jcertif/grunt-usemin/issues/44
                      //collapseWhitespace: true,
                      collapseBooleanAttributes: true,
                      removeAttributeQuotes: true,
@@ -173,17 +173,17 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>',
+                    cwd: '<%= jcertif.app %>',
                     src: ['index.html'],
-                    dest: '<%= yeoman.dist %>'
+                    dest: '<%= jcertif.dist %>'
                 }]
             }
         },
         usemin: {
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+            html: ['<%= jcertif.dist %>/{,*/}*.html'],
+            css: ['<%= jcertif.dist %>/styles/{,*/}*.css'],
             options: {
-                dirs: ['<%= yeoman.dist %>']
+                dirs: ['<%= jcertif.dist %>']
             }
         }
     });
@@ -207,7 +207,6 @@ module.exports = function (grunt) {
         'htmlmin:dist',
         'copy:dist',
         'usemin'
-
     ]);
 
     grunt.registerTask('default', ['dist']);
