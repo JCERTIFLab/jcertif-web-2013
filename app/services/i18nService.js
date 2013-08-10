@@ -51,7 +51,8 @@ app.factory('i18nService', function () {
         'form.register.pleaselogin' : 'Veuillez vous connecter !',
         'form.register.forgetpass' : 'Mot de passe oublié ?',
         'form.register.alreadysignin' : 'Vous êtes déjà authentifié !',
-        'form.password.minlength' : 'Attention le mot de passe doit être de 6 caractères minimum'
+        'form.password.minlength' : 'Attention le mot de passe doit être de 6 caractères minimum',
+        'form.badlogin' : 'Les informations fournies ne nous permettent pas de vous authentifier'
     }
 
     var EN = {
@@ -105,7 +106,8 @@ app.factory('i18nService', function () {
         'form.register.pleaselogin' : 'Login',
         'form.register.forgetpass' : 'Password forgetted ?',
         'form.register.alreadysignin' : 'You are already sign in !',
-        'form.password.minlength' : 'Password : 6 characters min'
+        'form.password.minlength' : 'Password : 6 characters min',
+        'form.badlogin' : 'Bad login'
     }
 
     var currentLang = FR;

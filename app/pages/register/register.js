@@ -8,6 +8,8 @@ app.controller('RegisterCtrl', ['$http', '$scope', '$dialog', '$location', 'i18n
         loginService.login($scope.login.email, $scope.login.password, function(participant, error){
             if(error == undefined) {
                 $location.path('/agenda')
+            } else {
+                $scope.loginError = i18nService.getText('form.badlogin');
             }
         });
     }
