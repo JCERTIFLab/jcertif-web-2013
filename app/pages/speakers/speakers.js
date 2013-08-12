@@ -3,7 +3,14 @@
 app.controller('SpeakersCtrl', ['$http', '$scope', '$dialog', 'backendService', function ($http, $scope, $dialog, backendService) {
 
     backendService.getSpeakers(function(speakersList) {
-        $scope.speakers = speakersList;
+        var speakersWithSession = [];
+        angular.forEach(speakersList, function(speaker){
+            if(speaker.sessions != undefined) {
+                speakersWithSession[speakersWithSession.length] = speaker;
+            }
+
+        });
+        $scope.speakers = speakersWithSession;
     });
 
 
