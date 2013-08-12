@@ -72,14 +72,25 @@ app.factory('backendService', ['$http', function ($http) {
         }
     }
 
+    function addSessionIdToSpeaker(speaker, session) {
+        if (speaker.sessions == undefined) {
+            speaker.sessions = [session.id];
+        } else {
+            speaker.sessions[speaker.sessions.length] = session.id;
+        }
+    }
+
 
 
     function joinSpeakerAndSession(speaker, session) {
 
+
         if(session.fullSpeakers == undefined) {
             session.fullSpeakers = [speaker];
+            addSessionIdToSpeaker(speaker, session);
         } else {
             session.fullSpeakers[session.fullSpeakers.length] = speaker;
+            addSessionIdToSpeaker(speaker, session);
         }
     }
 

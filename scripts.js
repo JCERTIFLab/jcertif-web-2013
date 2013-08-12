@@ -2614,7 +2614,14 @@ app.controller('SessionsCtrl', ['$http', '$scope', 'backendService', function ($
 app.controller('SpeakersCtrl', ['$http', '$scope', '$dialog', 'backendService', function ($http, $scope, $dialog, backendService) {
 
     backendService.getSpeakers(function(speakersList) {
-        $scope.speakers = speakersList;
+        var speakersWithSession = [];
+        angular.forEach(speakersList, function(speaker){
+            if(speaker.sessions != undefined) {
+                speakersWithSession[speakersWithSession.length] = speaker;
+            }
+
+        });
+        $scope.speakers = speakersWithSession;
     });
 
 
@@ -2712,14 +2719,25 @@ app.controller('SpeakerDetailsCtrl', ['$scope', '$dialog', 'speaker', function($
         }
     }
 
+    function addSessionIdToSpeaker(speaker, session) {
+        if (speaker.sessions == undefined) {
+            speaker.sessions = [session.id];
+        } else {
+            speaker.sessions[speaker.sessions.length] = session.id;
+        }
+    }
+
 
 
     function joinSpeakerAndSession(speaker, session) {
 
+
         if(session.fullSpeakers == undefined) {
             session.fullSpeakers = [speaker];
+            addSessionIdToSpeaker(speaker, session);
         } else {
             session.fullSpeakers[session.fullSpeakers.length] = speaker;
+            addSessionIdToSpeaker(speaker, session);
         }
     }
 
