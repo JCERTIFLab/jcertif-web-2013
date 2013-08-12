@@ -2864,7 +2864,7 @@ app.controller('SpeakerDetailsCtrl', ['$scope', '$dialog', 'speaker', function($
         'form.register.notsignup' : 'Never sign up ?',
         'form.register.alreadysignup' : 'Already registered ?',
         'form.register.pleaselogin' : 'Login',
-        'form.register.forgetpass' : 'Password forgetted ?',
+        'form.register.forgetpass' : 'Password Forgotten ?',
         'form.register.alreadysignin' : 'You are already sign in !',
         'form.password.minlength' : 'Password : 6 characters min',
         'form.badlogin' : 'Bad login'
@@ -2891,7 +2891,8 @@ app.controller('SpeakerDetailsCtrl', ['$scope', '$dialog', 'speaker', function($
             }
         }
     };
-});;app.factory('loginService', ['$http','$rootScope', '$cookieStore', function ($http, $rootScope, $cookieStore) {
+});
+;app.factory('loginService', ['$http','$rootScope', '$cookieStore', function ($http, $rootScope, $cookieStore) {
 
     var cookieAccessToken = $cookieStore.get('access_token');
     var cookieEmail = $cookieStore.get('user_email');

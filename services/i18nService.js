@@ -104,7 +104,7 @@ app.factory('i18nService', function () {
         'form.register.notsignup' : 'Never sign up ?',
         'form.register.alreadysignup' : 'Already registered ?',
         'form.register.pleaselogin' : 'Login',
-        'form.register.forgetpass' : 'Password forgetted ?',
+        'form.register.forgetpass' : 'Password Forgotten ?',
         'form.register.alreadysignin' : 'You are already sign in !',
         'form.password.minlength' : 'Password : 6 characters min',
         'form.badlogin' : 'Bad login'
