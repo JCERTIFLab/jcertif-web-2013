@@ -1,17 +1,19 @@
 <div class="col-lg-12">
-    <form name="cfpForm" class="form-horizontal" ng-controller="CfpCtrl">
+    <div ng-show="!logged">
+        <a href="#/register">{{ 'cfp.notlogged' | i18n }}</a>
+    </div>
+    <form name="cfpForm" class="form-horizontal" ng-controller="CfpCtrl" ng-show="logged">
         <fieldset>
             <div class="row">
-                <div class="col-lg-6" ng-show="checkSpeaker()">
+                <div class="col-lg-6">
                     <div class="jbox">
                         <h1>{{ 'cfp.speaker' | i18n }}</h1>
-                        <jc-input-text input-type="email" label="'form.email'" property="email" model="user.email"></jc-input-text>
-                        <jc-input-text input-type="password" label="'form.password'" property="password" model="user.password" msg="{{'form.password.min' | i18n}}"></jc-input-text>
-                        <jc-input-text input-type="text" label="'form.firstname'" property="firstname" model="user.firstname"></jc-input-text>
-                        <jc-input-text input-type="text" label="'form.lastname'" property="lastname" model="user.lastname"></jc-input-text>
-                        <jc-input-text input-type="text" label="'form.city'" property="city" model="user.city"></jc-input-text>
-                        <jc-input-text input-type="text" label="'form.country'" property="country" model="user.country"></jc-input-text>
-                        <jc-text-area label="'form.biography'" property="bio" model="user.biography"></jc-text-area>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label" for="bio">{{'form.biography' | i18n}}</label>
+                            <div class="col-lg-9">
+                                <textarea id="bio" class="form-control" name="{{property}}" ng-model="user.biography" rows="10"></textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -36,12 +38,8 @@
                     <div class="control-group">
                         <button class="btn btn-primary btn-lg pull-right" ng-click="submitForm()" ng-disabled="!isValid()">{{'form.submitCfp' | i18n}}</button>
                     </div>
-
-
                 </div>
             </div>
-
-
         </fieldset>
     </form>
     <br/>
