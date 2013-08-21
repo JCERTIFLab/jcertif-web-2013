@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="navbar">
+    <div class="navbar navbar-default">
         <ul class="nav navbar-nav">
             <li ng-repeat="item in menuItems" ng-click="selectMenu($index)" ng-class="getClass(item.url)" class="f-menu">
                 <a href="{{item.url}}">{{item.label | i18n}}</a>
