@@ -141,11 +141,9 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    '<%= jcertif.app %>/components/es5-shim/es5-shim.js',
-                    '<%= jcertif.app %>/components/json3/lib/json3.min.js',
                     '<%= jcertif.app %>/components/angular/angular.min.js',
-                    '<%= jcertif.app %>/components/angular-resource/angular-resource.js',
-                    '<%= jcertif.app %>/components/angular-cookies/angular-cookies.js',
+                    '<%= jcertif.app %>/components/angular-resource/angular-resource.min.js',
+                    '<%= jcertif.app %>/components/angular-cookies/angular-cookies.min.js',
                     '<%= jcertif.app %>/components/angular-bootstrap/ui-bootstrap.min.js',
                     '<%= jcertif.app %>/components/angular-bootstrap/ui-bootstrap-tpls.min.js',
                     '<%= jcertif.app %>/app.js',
