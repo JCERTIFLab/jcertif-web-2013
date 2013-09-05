@@ -36,7 +36,7 @@ app.factory('i18nService', function () {
         'form.register.ok' : 'Inscription validée',
         'form.register.ko' : 'Ooops !',
         'form.register.ok.msg' : 'Votre inscription a bien été prise en compte. Vous allez recevoir un email qui vous indiquera les prochaines étapes à suivre.',
-        'form.register.ko.msg' : "Vous êtes probablement déjà inscrit, pour vous en assurez, vous pouvez réinitialisez votre mot de passe. Si à la suite de cette opération, vous ne recevez pas votre nouveau mot de passe par email, veuillez nous envoyer un email à l'adresse info@jcertif.com. Dans tous les cas, vous pouvez vous présenter à la Bibliothèque Nationale de l'université dès le lundi 09 septembre à 08h00.",
+        'form.register.ko.msg' : "Vous êtes probablement déjà inscrit, pour vous en assurez, vous pouvez réinitialisez votre mot de passe. Si à la suite de cette opération, vous ne recevez pas votre nouveau mot de passe par email, veuillez nous envoyer un email à l'adresse info@jcertif.com ou nous contacter par téléphone au 04 410 90 90. Dans tous les cas, vous pouvez vous présenter à la Bibliothèque Nationale de l'université dès le lundi 09 septembre à 08h00.",
         'form.register.wait' : 'Inscription en cours...Veuillez patienter svp...',
         'form.send' : 'Envoyer',
         'form.reinitemail.ko' : 'Veuillez saisir un email valide',
